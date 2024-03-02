@@ -1,0 +1,3 @@
+F:/projects/YtDownloader/YtDownloader/YtDownloader/cmake-build-debug/CMakeFiles/YtDownloader.dir
+F:/projects/YtDownloader/YtDownloader/YtDownloader/cmake-build-debug/CMakeFiles/edit_cache.dir
+F:/projects/YtDownloader/YtDownloader/YtDownloader/cmake-build-debug/CMakeFiles/rebuild_cache.dir

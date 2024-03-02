@@ -1,0 +1,6 @@
+#ifndef YTDLPWRAPPER_LIBRARY_H
+#define YTDLPWRAPPER_LIBRARY_H
+
+void hello();
+
+#endif //YTDLPWRAPPER_LIBRARY_H
