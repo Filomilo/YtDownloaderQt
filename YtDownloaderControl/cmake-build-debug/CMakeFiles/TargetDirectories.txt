@@ -1,4 +1,0 @@
-F:/projects/YtDownloader/YtDownloader/YtDownloaderControl/cmake-build-debug/CMakeFiles/YtDlpWrapper.dir
-F:/projects/YtDownloader/YtDownloader/YtDownloaderControl/cmake-build-debug/CMakeFiles/YoutubeDownloader.dir
-F:/projects/YtDownloader/YtDownloader/YtDownloaderControl/cmake-build-debug/CMakeFiles/edit_cache.dir
-F:/projects/YtDownloader/YtDownloader/YtDownloaderControl/cmake-build-debug/CMakeFiles/rebuild_cache.dir

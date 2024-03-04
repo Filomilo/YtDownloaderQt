@@ -20,7 +20,7 @@ YtDlmCommand build()
 
     YtDlmCommandBuilder* listPlaylistVideo(std::string playlistLink)
 {
-    this->ytDlmCommand.addToCommand("--flat-playlist -j \""+playlistLink+"\" -o \"%(title)s\"");
+    this->ytDlmCommand.addToCommand("--flat-playlist -j --no-warnings  \""+playlistLink+"\"");
     return this;
 }
 

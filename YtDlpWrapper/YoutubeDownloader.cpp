@@ -3,3 +3,8 @@
 //
 
 #include "YoutubeDownloader.h"
+YoutubeDownloader* YoutubeDownloader::instance = nullptr;
+
+std::vector<YoutubeVideo> YoutubeDownloader::getVideos() {
+    return this->videosList;
+}

@@ -9,6 +9,7 @@
 #include <sstream>
 #include <iostream>
 #include "YoutubeVideo.h"
+#include "nlohmann/json.hpp"
 class JsonParser {
 public:
 private:
@@ -58,23 +59,37 @@ public:
 
     }
 
-    static YoutubeVideo parseJsonVideo(std::string json)
+    static YoutubeVideo parseJsonVideo(nlohmann::json jsonData)
     {
-//        std::cout<<"------------------------------\n\n";
-//        std::cout<<json<<std::endl<<std::endl;
-std::string copy=json;
-        std::string title=JsonParser::getStringAttribute("title",copy);
-std::string url=JsonParser::getStringAttribute("url",json);
-//        std::cout<<"url: "<<std::endl<<std::endl;
-
-//        std::string thumbnail=JsonParser::getStringAttribute("url",json);
-//        std::string duration=JsonParser::getStringAttribute("duration_string",json);
+    try {
+        Logger::info("Parsing json: " + to_string(jsonData));
         YoutubeVideo ytV;
-//        ytV.setUrl(url);
-//        ytV.setName(title);
-//        ytV.setThumbnail(thumbnail);
-//        ytV.setDuration(duration);
+
+        Logger::info("parsed json: " + jsonData.size());
+        Logger::info("auto subs");
+        Logger::info("Auto subs: "+  std::to_string(jsonData["automatic_captions"].size()));
+        for (auto it=jsonData["automatic_captions"].begin() ;it!=jsonData["automatic_captions"].end();it++ ) {
+//            std::cout<<"key: "<<it.key()<<std::endl;
+            ytV.addAutoSubtitle(it.key());
+        }
+        for (auto it=jsonData["subtitles"].begin() ;it!=jsonData["subtitles"].end();it++ ) {
+//            std::cout<<"key: "<<it.key()<<std::endl;
+            ytV.addSubtitle(it.key());
+        }
+
+      ytV.setName(jsonData["title"]);
+      ytV.setThumbnail(jsonData["thumbnail"]);
+      ytV.setDuration(jsonData["duration_string"]);
         return ytV;
+    }
+    catch (std::exception ex)
+    {
+        std::string err="Couldnt parse json: ";
+        err+=ex.what();
+        Logger::error(err);
+        throw new std::runtime_error(err);
+    }
+
     }
 };
 

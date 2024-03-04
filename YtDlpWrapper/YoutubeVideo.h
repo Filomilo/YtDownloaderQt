@@ -15,6 +15,7 @@ class YoutubeVideo {
     std::string name;
     std::string url;
     std::vector<std::string> subtitles;
+    std::vector<std::string> autoSubtitles;
     std::string thumbnail;
     std::string duration;
 
@@ -62,9 +63,18 @@ public:
     }
 
     friend std::ostream &operator<<(std::ostream &os, const YoutubeVideo &video) {
-        os << "\n\nname: " << video.name << "\n url: " << video.url << "\n subtitles: " << video.subtitles.size() << "\n thumbnail: "
+        os << "\n\nname: " << video.name << "\n url: " << video.url << "\n subtitles: " << video.subtitles.size()  << "\nauto subtitles: " << video.autoSubtitles.size() << "\n thumbnail: "
            << video.thumbnail << "\n duration: " << video.duration;
         return os;
+    }
+
+    void addSubtitle(std::string sub)
+    {
+        this->subtitles.push_back(sub);
+    }
+    void addAutoSubtitle(std::string sub)
+    {
+        this->autoSubtitles.push_back(sub);
     }
 
 };

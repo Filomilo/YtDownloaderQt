@@ -8,6 +8,12 @@
 #include "YoutubeVideo.h"
 #include <future>
 #include "Logger.h"
+#include "YtDlmCommand.h"
+#include "YtDlmCommandBuilder.h"
+#include "Executor.h"
+#include "ExecutionResult.h"
+#include "JsonParser.h"
+#include <sstream>
 class YoutubeDownloader {
 private:
     std::vector<YoutubeVideo> videosList;
@@ -15,19 +21,90 @@ private:
     YoutubeDownloader(){
     }
 
+   void loadSingleVideo(std::string link)
+    {
+        Logger::info("Loading single video from data from data: " + link);
+
+        YtDlmCommand ytDlmCommand=(new YtDlmCommandBuilder)->listPlaylistVideo(link)->build();
+        nlohmann::json data=Executor::executeWithJson(ytDlmCommand.getCommand());
+
+        std::vector<YoutubeVideo> tmp;
+        YoutubeVideo video=JsonParser::parseJsonVideo(data);
+        video.setUrl(link);
+        this->videosList.push_back(video);
+
+    }
+
+    std::string getUrlFromPlaylsitEntry(std::string line)
+    {
+        std::string toFind="url\": \"";
+        std::cout<<"to get link: "<<line<<std::endl;
+        int start=line.find(toFind);
+        std::cout<<"\nstart: "<<start<<std::endl;
+        if(start<0)
+            return "";
+        line=line.substr(start+toFind.size());
+        std::cout<<"\nfrom sart: "<<line<<std::endl;
+        int end=line.find("\"");
+        std::cout<<"\nend: "<<end<<std::endl;
+       line= line.substr(0,end);
+        std::cout<<"\nfrom end: "<<line<<std::endl;
+        return line;
+    }
+
+
+    void loadPlaylist(std::string link)
+    {
+        Logger::info("Loading playlsit data from data: " + link);
+        YtDlmCommand ytDlmCommand=(new YtDlmCommandBuilder)->listPlaylistVideo(link)->build();
+        ExecutionResult data=Executor::execute(ytDlmCommand.getCommand());
+        Logger::info("Json data: "+data.out);
+        std::istringstream ss(data.out);
+        Logger::info("\n\n\n\n\n\nline by line: ");
+        while(!ss.eof())
+        {
+            std::string line;
+            std::getline(ss,line);
+          ;
+            std::string url=this->getUrlFromPlaylsitEntry(line);
+            std::cout<<"url: "<<url<<std::endl<<std::endl<<std::endl;
+
+            this->loadSingleVideo(url);
+        }
+        std::vector<YoutubeVideo> tmp;
+      this->videosList=tmp;
+    }
+
+ void addVideo(std::string link)
+    {
+
+    }
+
+
 public:
     static YoutubeDownloader* getInstance(){
-        if( YoutubeDownloader::instance== nullptr)
+        if( instance== nullptr)
         {
-            YoutubeDownloader::instance=new YoutubeDownloader;
+            YoutubeDownloader::instance=new YoutubeDownloader();
         }
         return  YoutubeDownloader::instance;
     }
 
     bool loadFiles(std::string link)
     {
+        this->videosList.clear();
         try {
             Logger::info("Loaing files form link: " + link);
+            std::vector<YoutubeVideo> list;
+
+            if (link.find("list") != std::string::npos) {
+                loadPlaylist(link);
+            }
+            else {
+                loadSingleVideo(link);
+            }
+            Logger::info("size; "+ list.size());
+//            Logger::info("Execution Result " + executionResult.out);
         }
         catch (std::exception ex)
         {
@@ -39,7 +116,7 @@ public:
     }
 
 
-
+    std::vector<YoutubeVideo> getVideos();
 };
 
 

@@ -12,7 +12,7 @@ class Logger {
 public:
     static void info(std::string info)
     {
-        std::cout<<"Log info: "<<info<<std::endl;
+        std::cout<<"\n\nLog info: "<<info<<std::endl;
     }
 
 

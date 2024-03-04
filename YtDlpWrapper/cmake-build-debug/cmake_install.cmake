@@ -1,4 +1,4 @@
-# Install script for directory: F:/projects/YtDownloader/YtDownloader/YtDlpWrapper
+# Install script for directory: D:/proejcts/qtYTDownalde/YtDownloaderQt/YtDlpWrapper
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "F:/pliki/CLion 2023.3.4/bin/mingw/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "D:/pliki/Clion/CLion 2023.1.4/bin/mingw/bin/objdump.exe")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "F:/projects/YtDownloader/YtDownloader/YtDlpWrapper/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/proejcts/qtYTDownalde/YtDownloaderQt/YtDlpWrapper/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
