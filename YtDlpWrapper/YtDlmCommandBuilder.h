@@ -23,8 +23,22 @@ YtDlmCommand build()
     this->ytDlmCommand.addToCommand("--flat-playlist -j --no-warnings  \""+playlistLink+"\"");
     return this;
 }
+    YtDlmCommandBuilder* addLocation(std::string location)
+    {
+        this->ytDlmCommand.addToCommand(" -o \""+location+"/%(title)s.%(ext)s\"");
+        return this;
+    }
 
-
+            YtDlmCommandBuilder* addFormat(std::string format)
+    {
+        this->ytDlmCommand.addToCommand(" -f "+format);
+        return this;
+    }
+    YtDlmCommandBuilder* addLink(std::string link)
+    {
+        this->ytDlmCommand.addToCommand(" \""+link+"\"");
+        return this;
+    }
 
 };
 

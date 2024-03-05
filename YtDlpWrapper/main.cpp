@@ -6,6 +6,7 @@
 //#include <vector>
 //#include "YoutubeVideo.h"
 //#include "JsonParser.h"
+#include "DownloadRequest.h"
 #include "YoutubeDownloader.h"
 void listVideosSignle()
 {
@@ -15,6 +16,9 @@ void listVideosSignle()
     int i=0;
     for (YoutubeVideo yt: ytDownloader->getVideos()) {
         std::cout<<"video["<<i++<<"]= "<<yt<<std::endl;
+        DownloadRequest downloadRequest(yt,"D:\\temp\\donwald");
+        downloadRequest.execute();
+
     }
 //    std::cout<<"tmp: "<<std::getenv("TMP");
 }
@@ -22,7 +26,7 @@ void listVideosSignle()
 void listVideosPlaylist()
 {
     YoutubeDownloader* ytDownloader=YoutubeDownloader::getInstance();
-    ytDownloader->loadFiles("https://www.youtube.com/playlist?list=PLAAvrXqrV4qTrzk0tiRiICCsHdYmbwi1Y");
+    ytDownloader->loadFiles("https://www.youtube.com/playlist?list=PL7VmhWGNRxKjkg6647cFu_KymlouyikR4");
     Logger::info("Loaded videos data: ");
     int i=0;
     for (YoutubeVideo yt: ytDownloader->getVideos()) {
@@ -35,7 +39,7 @@ void listVideosPlaylist()
 int main(){
     std::cout<<"test\n";
 
-//    listVideosSignle();
-    listVideosPlaylist();
+    listVideosSignle();
+//    listVideosPlaylist();
     return 0;
 }

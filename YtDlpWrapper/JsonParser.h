@@ -62,21 +62,25 @@ public:
     static YoutubeVideo parseJsonVideo(nlohmann::json jsonData)
     {
     try {
-        Logger::info("Parsing json: " + to_string(jsonData));
+        Logger::info("\n\nParsing json: " +jsonData.dump());
         YoutubeVideo ytV;
 
-        Logger::info("parsed json: " + jsonData.size());
+        Logger::info("\n\nparsed json: " + jsonData.size());
         Logger::info("auto subs");
-        Logger::info("Auto subs: "+  std::to_string(jsonData["automatic_captions"].size()));
-        for (auto it=jsonData["automatic_captions"].begin() ;it!=jsonData["automatic_captions"].end();it++ ) {
-//            std::cout<<"key: "<<it.key()<<std::endl;
-            ytV.addAutoSubtitle(it.key());
+//        Logger::info("formats: "+  std::to_string(jsonData["formts"].size()));
+//        for (auto it=jsonData["automatic_captions"].begin() ;it!=jsonData["requested_formats"].end();it++ ) {
+////            std::cout<<"key: "<<it.key()<<std::endl;
+//            ytV.addAutoSubtitle(it.key());
+//        }
+//        for (auto it=jsonData["subtitles"].begin() ;it!=jsonData["subtitles"].end();it++ ) {
+////            std::cout<<"key: "<<it.key()<<std::endl;
+//            ytV.addSubtitle(it.key());
+//        }
+        std::cout<<"json format: "<<jsonData["resolution"].dump()<<std::endl;
+        for (auto it=jsonData.begin() ;it!=jsonData.end();it++ ) {
+            std::cout<<"key: "<<it.key()<<std::endl;
+//            ytV.addSubtitle(it.key());
         }
-        for (auto it=jsonData["subtitles"].begin() ;it!=jsonData["subtitles"].end();it++ ) {
-//            std::cout<<"key: "<<it.key()<<std::endl;
-            ytV.addSubtitle(it.key());
-        }
-
       ytV.setName(jsonData["title"]);
       ytV.setThumbnail(jsonData["thumbnail"]);
       ytV.setDuration(jsonData["duration_string"]);
