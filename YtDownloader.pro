@@ -13,13 +13,16 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
+    videolistelement.cpp \
     ytdownloader.cpp
 
 HEADERS += \
+    videolistelement.h \
     ytdownloader.h
 
 FORMS += \
     VideoElement.ui \
+    videolistelement.ui \
     ytdownloader.ui
 
 TRANSLATIONS += \

@@ -1,0 +1,22 @@
+#ifndef VIDEOELEMENT_H
+#define VIDEOELEMENT_H
+
+#include <QWidget>
+
+namespace Ui {
+class VideoElement;
+}
+
+class VideoElement : public QWidget
+{
+    Q_OBJECT
+
+public:
+    explicit VideoElement(QWidget *parent = nullptr);
+    ~VideoElement();
+
+private:
+    Ui::VideoElement *ui;
+};
+
+#endif // VIDEOELEMENT_H
