@@ -77,6 +77,15 @@ public:
         this->autoSubtitles.push_back(sub);
     }
 
+    std::string toString() {
+        std::ostringstream os;
+        os << "\n\nname: " << name << "\n url: " << url << "\n subtitles: " << subtitles.size()  << "\nauto subtitles: " << autoSubtitles.size() << "\n thumbnail: "
+           << thumbnail << "\n duration: " << duration;
+        return os.str();
+    }
+
+
+
 };
 
 

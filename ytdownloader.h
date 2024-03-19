@@ -17,7 +17,11 @@ public:
     YtDownloader(QWidget *parent = nullptr);
     ~YtDownloader();
 
+private slots:
+    void on_searcg_clicked();
+
 private:
     Ui::YtDownloader *ui;
+    void addVideoComponents();
 };
 #endif // YTDOWNLOADER_H

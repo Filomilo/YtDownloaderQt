@@ -27,7 +27,7 @@ private:
 
 
 public:
-    static ExecutionResult  execute(std::string command)
+    static std::ifstream  execute(std::string command)
     {
         command+=" > "+getFilePath("result.dat")+"\n";
         std::cout<<"command: "+ command;
@@ -44,16 +44,16 @@ public:
         }
 
 //        system("rm result.dat");
-        infile.close();
+        return infile;
 
-//        int rc=fclose(file);
-//        if (rc<0)
-//            throw std::runtime_error("Couldnt close result.dat");
-        int res= std::remove(getFilePath("result.dat").c_str());
-//
-        if (res<0)
-            throw std::runtime_error("Couldnt remove result.dat");
-        return ExecutionResult(rc,buffer,"");
+////        int rc=fclose(file);
+////        if (rc<0)
+////            throw std::runtime_error("Couldnt close result.dat");
+//        int res= std::remove(getFilePath("result.dat").c_str());
+////
+//        if (res<0)
+//            throw std::runtime_error("Couldnt remove result.dat");
+//        return ExecutionResult(rc,buffer,"");
     }
     static nlohmann::json executeWithJson(std::string command)
     {
@@ -66,15 +66,33 @@ public:
         infile.close();
         Logger::info("json dump: "+data.dump());
 
+
+        return data;
+    }
+
+    static void clearResut()
+    {
         int res= std::remove(getFilePath("result.dat").c_str());
 //
         if (res<0)
             throw std::runtime_error("Couldnt remove result.dat");
-        return data;
     }
 
-
-
+    static void executeWithFeedBack(std::string basicString, void (*pFunction)(std::string))
+    {
+        Logger::info("Executor with feedback");
+        std::array<char, 1024*1024> buffer;
+        std::string result;
+        std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(basicString.c_str(), "r"), pclose);
+        if (!pipe) {
+            throw std::runtime_error("popen() failed!");
+        }
+        while (fgets(buffer.data(), static_cast<int>(buffer.size()), pipe.get()) != nullptr) {
+            result = buffer.data();
+            pFunction(result);
+        }
+        return;
+    }
 };
 
 

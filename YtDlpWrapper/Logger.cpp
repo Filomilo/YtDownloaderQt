@@ -3,3 +3,4 @@
 //
 
 #include "Logger.h"
+const std::string Logger::fileLog="debug.log";

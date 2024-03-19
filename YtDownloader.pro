@@ -1,5 +1,8 @@
 QT       += core gui
 QT += quickcontrols2
+
+
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
@@ -16,6 +19,7 @@ HEADERS += \
     ytdownloader.h
 
 FORMS += \
+    VideoElement.ui \
     ytdownloader.ui
 
 TRANSLATIONS += \

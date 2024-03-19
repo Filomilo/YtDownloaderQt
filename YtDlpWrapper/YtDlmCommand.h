@@ -15,7 +15,7 @@ private:
 public:
     YtDlmCommand()
     {
-        command="yt-dlp ";
+        command="yt-dlp --newline  ";
     }
 
     void addToCommand(std::string command)
@@ -28,13 +28,15 @@ public:
         return this->command;
     }
 
-    ExecutionResult execute()
+    std::ifstream execute()
     {
         return Executor::execute(this->getCommand());
     }
 
 
-
+    void executeWithFeedback(void (*pFunction)(std::string)) {
+        Executor::executeWithFeedBack(this->getCommand(),pFunction);
+    }
 };
 
 

@@ -25,7 +25,7 @@ YtDlmCommand build()
 }
     YtDlmCommandBuilder* addLocation(std::string location)
     {
-        this->ytDlmCommand.addToCommand(" -o \""+location+"/%(title)s.%(ext)s\"");
+        this->ytDlmCommand.addToCommand(" -o \""+location+"/%(title)s_%(id)s.%(ext)s\"");
         return this;
     }
 
@@ -39,7 +39,28 @@ YtDlmCommand build()
         this->ytDlmCommand.addToCommand(" \""+link+"\"");
         return this;
     }
+    YtDlmCommandBuilder* setSponsrBlock(std::vector<std::string> blocks)
+    {
+    std::string toAdd="--sponsorblock-remove ";
+    for(int i=0;i<blocks.size();i++)
+    {
+        toAdd+=blocks.at(i);
+        if(i<blocks.size()-1)
+            toAdd+=",";
+    }
+        this->ytDlmCommand.addToCommand(toAdd);
+        return this;
+    }
 
+
+    YtDlmCommandBuilder* addSection(std::string start, std::string end) {
+        this->ytDlmCommand.addToCommand("--download-sections \"*"+start+"-"+end+"\"");
+        return this;
+    }
+
+    void setRes(int res) {
+        this->ytDlmCommand.addToCommand("-S res:"+ std::to_string(res));
+    }
 };
 
 

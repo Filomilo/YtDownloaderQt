@@ -73,6 +73,18 @@ build CMakeFiles/YtDlpWrapper.dir/DownloadRequest.cpp.obj: CXX_COMPILER__YtDlpWr
   OBJECT_DIR = CMakeFiles\YtDlpWrapper.dir
   OBJECT_FILE_DIR = CMakeFiles\YtDlpWrapper.dir
 
+build CMakeFiles/YtDlpWrapper.dir/DonwloadRequestBuilder.cpp.obj: CXX_COMPILER__YtDlpWrapper_Debug D$:/proejcts/qtYTDownalde/YtDownloaderQt/YtDlpWrapper/DonwloadRequestBuilder.cpp || cmake_object_order_depends_target_YtDlpWrapper
+  DEP_FILE = CMakeFiles\YtDlpWrapper.dir\DonwloadRequestBuilder.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\YtDlpWrapper.dir
+  OBJECT_FILE_DIR = CMakeFiles\YtDlpWrapper.dir
+
+build CMakeFiles/YtDlpWrapper.dir/Logger.cpp.obj: CXX_COMPILER__YtDlpWrapper_Debug D$:/proejcts/qtYTDownalde/YtDownloaderQt/YtDlpWrapper/Logger.cpp || cmake_object_order_depends_target_YtDlpWrapper
+  DEP_FILE = CMakeFiles\YtDlpWrapper.dir\Logger.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\YtDlpWrapper.dir
+  OBJECT_FILE_DIR = CMakeFiles\YtDlpWrapper.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target YtDlpWrapper
@@ -81,7 +93,7 @@ build CMakeFiles/YtDlpWrapper.dir/DownloadRequest.cpp.obj: CXX_COMPILER__YtDlpWr
 #############################################
 # Link the executable YtDlpWrapper.exe
 
-build YtDlpWrapper.exe: CXX_EXECUTABLE_LINKER__YtDlpWrapper_Debug CMakeFiles/YtDlpWrapper.dir/main.cpp.obj CMakeFiles/YtDlpWrapper.dir/YoutubeDownloader.cpp.obj CMakeFiles/YtDlpWrapper.dir/Executor.cpp.obj CMakeFiles/YtDlpWrapper.dir/DownloadRequest.cpp.obj
+build YtDlpWrapper.exe: CXX_EXECUTABLE_LINKER__YtDlpWrapper_Debug CMakeFiles/YtDlpWrapper.dir/main.cpp.obj CMakeFiles/YtDlpWrapper.dir/YoutubeDownloader.cpp.obj CMakeFiles/YtDlpWrapper.dir/Executor.cpp.obj CMakeFiles/YtDlpWrapper.dir/DownloadRequest.cpp.obj CMakeFiles/YtDlpWrapper.dir/DonwloadRequestBuilder.cpp.obj CMakeFiles/YtDlpWrapper.dir/Logger.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\YtDlpWrapper.dir

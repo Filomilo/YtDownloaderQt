@@ -57,9 +57,9 @@ private:
     {
         Logger::info("Loading playlsit data from data: " + link);
         YtDlmCommand ytDlmCommand=(new YtDlmCommandBuilder)->listPlaylistVideo(link)->build();
-        ExecutionResult data=Executor::execute(ytDlmCommand.getCommand());
-        Logger::info("Json data: "+data.out);
-        std::istringstream ss(data.out);
+        std::ifstream ss=Executor::execute(ytDlmCommand.getCommand());
+//        Logger::info("Json data: "+data.out.length());
+//        std::istringstream ss(data.out);
         Logger::info("\n\n\n\n\n\nline by line: ");
         while(!ss.eof())
         {
@@ -72,6 +72,8 @@ private:
             this->loadSingleVideo(url);
         }
         std::vector<YoutubeVideo> tmp;
+        ss.close();
+        Executor::clearResut();
       this->videosList=tmp;
     }
 
