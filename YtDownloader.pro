@@ -21,7 +21,6 @@ HEADERS += \
     ytdownloader.h
 
 FORMS += \
-    VideoElement.ui \
     videolistelement.ui \
     ytdownloader.ui
 
