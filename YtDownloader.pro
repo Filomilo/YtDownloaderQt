@@ -1,6 +1,6 @@
 QT       += core gui
 QT += quickcontrols2
-QT += webenginewidgets
+# QT += webenginewidgets
 QT += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -12,11 +12,16 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Worker.cpp \
     main.cpp \
     videolistelement.cpp \
-    ytdownloader.cpp
+    ytdownloader.cpp \
+    YtDlpWrapper/YoutubeDownloader.cpp \
+    YtDlpWrapper/Executor.cpp \
+    YtDlpWrapper/Logger.cpp
 
 HEADERS += \
+    Worker.h \
     videolistelement.h \
     ytdownloader.h
 
@@ -33,3 +38,5 @@ CONFIG += embed_translations
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+INCLUDEPATH += /YtDlpWrapper

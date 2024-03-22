@@ -17,7 +17,7 @@ private:
     {
 
         std::string toFind="\""+attribute+"\": \"";
-        std::cout<<"to find: "<<toFind<<"\n\n";
+        // std::cout<<"to find: "<<toFind<<"\n\n";
         int start= Json.find(toFind);
         if(start<0)
         {
@@ -25,14 +25,14 @@ private:
             start= Json.find(toFind);
         }
 
-        std::cout<<"start: "<<start<<"\n\n";
-        std::cout<<"aprt json: "<<Json<<"\n\n";
+        // std::cout<<"start: "<<start<<"\n\n";
+        // std::cout<<"aprt json: "<<Json<<"\n\n";
         Json=Json.substr(start+toFind.size());
-        std::cout<<"aprt json: "<<Json<<"\n\n";
+        // std::cout<<"aprt json: "<<Json<<"\n\n";
         start= Json.find_first_of('"');
-        std::cout<<"start: "<<start<<"\n\n";
+        // std::cout<<"start: "<<start<<"\n\n";
         std::string out= Json.substr(0,start);
-        std::cout<<"out: "<<out<<"\n\n";
+        // std::cout<<"out: "<<out<<"\n\n";
         return out;
     }
 public:
@@ -76,9 +76,9 @@ public:
 ////            std::cout<<"key: "<<it.key()<<std::endl;
 //            ytV.addSubtitle(it.key());
 //        }
-        std::cout<<"json format: "<<jsonData["resolution"].dump()<<std::endl;
+        // std::cout<<"json format: "<<jsonData["resolution"].dump()<<std::endl;
         for (auto it=jsonData.begin() ;it!=jsonData.end();it++ ) {
-            std::cout<<"key: "<<it.key()<<std::endl;
+            // std::cout<<"key: "<<it.key()<<std::endl;
 //            ytV.addSubtitle(it.key());
         }
       ytV.setName(jsonData["title"]);

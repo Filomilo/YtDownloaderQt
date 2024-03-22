@@ -21,7 +21,8 @@ private:
     static const std::string programTmpPath;
     static std::string getFilePath(std::string name)
     {
-        CreateDirectory (programTmpPath.c_str(),NULL);
+         std::wstring wideProgramTmpPath(programTmpPath.begin(), programTmpPath.end());
+        CreateDirectoryW (wideProgramTmpPath.c_str(),NULL);
         return programTmpPath+name;
     }
 
@@ -30,7 +31,7 @@ public:
     static std::ifstream  execute(std::string command)
     {
         command+=" > "+getFilePath("result.dat")+"\n";
-        std::cout<<"command: "+ command;
+        // std::cout<<"command: "+ command;
         Logger::info("Executing: "+ command);
         int rc=system(command.c_str());
 //        FILE * file=fopen("result.dat","r");
@@ -58,7 +59,7 @@ public:
     static nlohmann::json executeWithJson(std::string command)
     {
         command+=" > "+getFilePath("result.dat")+"\n";
-        std::cout<<"command: "+ command;
+        // std::cout<<"command: "+ command;
         Logger::info("Executing for json: "+ command);
         int rc=system(command.c_str());
         std::ifstream infile(getFilePath("result.dat"));
