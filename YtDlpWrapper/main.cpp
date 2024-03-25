@@ -4,7 +4,7 @@
 //#include "YtDlmCommand.h"
 //#include "YtDlmCommandBuilder.h"
 //#include <vector>
-//#include "YoutubeVideo.h"
+#include "YoutubeVideo.h"
 //#include "JsonParser.h"
 #include "DownloadRequest.h"
 #include "YoutubeDownloader.h"
@@ -19,7 +19,7 @@ void outputFeedBack(std::string line)
 void listVideosSignle()
 {
     YoutubeDownloader* ytDownloader=YoutubeDownloader::getInstance();
-    ytDownloader->loadFiles("https://www.youtube.com/watch?v=f1A7SdVTlok");
+    ytDownloader->loadFilesWithCallBack("https://www.youtube.com/watch?v=f1A7SdVTlok",[](YoutubeVideo vid){Logger::info("Test");});
     Logger::info("Loaded videos data: ");
     int i=0;
     std::vector<std::string> blocks;
@@ -63,9 +63,9 @@ void listVideosPlaylist()
 
 
 int main(){
-    std::cout<<"test\n";
+    // std::cout<<"test\n";
 
-    listVideosSignle();
-//    listVideosPlaylist();
+    // listVideosSignle();
+   listVideosPlaylist();
     return 0;
 }

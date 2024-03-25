@@ -17,14 +17,14 @@ public:
     static void info(std::string info)
     {
         std::cout<<"\n\nLog info: "<<info<<std::endl;
-        std::ofstream f;
-        f.open(fileLog,std::ios_base::app);
-        f<<"\n\nLog info: "<<info<<std::endl;
-        f.close();
+        // std::ofstream f;
+        // f.open(fileLog,std::ios_base::app);
+        // f<<"\n\nLog info: "<<info<<std::endl;
+        // f.close();
     }
 
 
-    static void error(std::basic_string<char, std::char_traits<char>, std::allocator<char>> basicString) {
+    static void error(std::string info) {
         std::cerr<<"Log Error: "<<info<<std::endl;
     }
 };

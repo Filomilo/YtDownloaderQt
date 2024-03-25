@@ -2,7 +2,8 @@
 #define YTDOWNLOADER_H
 
 #include <QMainWindow>
-
+#include "YtDlpWrapper/YoutubeDownloader.h"
+#include "Worker.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class YtDownloader;
@@ -18,10 +19,16 @@ public:
     ~YtDownloader();
 
 private slots:
-    void on_searcg_clicked();
 
+
+    void on_searchButon_clicked();
+  void onLoadFinshed();
 private:
     Ui::YtDownloader *ui;
-    void addVideoComponents();
+    void addVideoComponents(YoutubeVideo vid);
+    YoutubeDownloader* youtubeDownloader;
+    void clearLoadedVideos();
+    Worker* worker;
+    QThread* thread;
 };
 #endif // YTDOWNLOADER_H

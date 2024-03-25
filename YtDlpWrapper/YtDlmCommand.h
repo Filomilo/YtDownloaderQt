@@ -28,14 +28,14 @@ public:
         return this->command;
     }
 
-    std::ifstream execute()
+    std::ifstream execute(std::string fileOFfset)
     {
-        return Executor::execute(this->getCommand());
+        return Executor::execute(this->getCommand(),fileOFfset);
     }
 
 
-    void executeWithFeedback(void (*pFunction)(std::string)) {
-        Executor::executeWithFeedBack(this->getCommand(),pFunction);
+    void executeWithFeedback(std::string fileOFfset,void (*pFunction)(std::string)) {
+        Executor::executeWithFeedBack(this->getCommand(),fileOFfset,pFunction);
     }
 };
 

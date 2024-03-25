@@ -6,116 +6,248 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>404</width>
-    <height>208</height>
+    <width>347</width>
+    <height>226</height>
    </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>52555</width>
+    <height>226</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_2">
+  <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
-    <widget class="QLabel" name="label">
-     <property name="maximumSize">
-      <size>
-       <width>100</width>
-       <height>100</height>
-      </size>
-     </property>
-     <property name="toolTipDuration">
-      <number>3</number>
-     </property>
+    <widget class="QLabel" name="videoTitle">
      <property name="text">
-      <string/>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
+      <string>title</string>
      </property>
     </widget>
    </item>
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout">
+    <layout class="QHBoxLayout" name="horizontalLayout_6">
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QLabel" name="label">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>192</width>
+         <height>108</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>192</width>
+         <height>108</height>
+        </size>
+       </property>
+       <property name="toolTipDuration">
+        <number>3</number>
+       </property>
        <property name="text">
-        <string>PushButton</string>
+        <string/>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QRadioButton" name="radioButton_2">
+        <widget class="QPushButton" name="downloadButton">
          <property name="text">
-          <string>Audio+video</string>
+          <string>Download</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QRadioButton" name="radioButton">
-         <property name="text">
-          <string>audio</string>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <item>
+          <widget class="QRadioButton" name="videoradio">
+           <property name="text">
+            <string>Audio+video</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="audioRadio">
+           <property name="text">
+            <string>audio</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="FormatDropDown">
+           <item>
+            <property name="text">
+             <string>mp4</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>mkv</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="qualityDropDown">
+           <item>
+            <property name="text">
+             <string>240</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>360</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>480</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>720</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>1080</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_3"/>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>start</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTimeEdit" name="timeStart"/>
+         </item>
+         <item>
+          <widget class="QSlider" name="sliderStart">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox_2"/>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_3">
-       <item>
-        <widget class="QLabel" name="label_2">
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QSlider" name="horizontalSlider">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QSlider" name="horizontalSlider_2">
-         <property name="value">
-          <number>99</number>
-         </property>
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QSlider" name="sliderEnd">
+           <property name="value">
+            <number>99</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>end</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTimeEdit" name="timeEnd">
+           <property name="displayFormat">
+            <string>m:ss</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item>
-        <widget class="QLabel" name="label_3">
-         <property name="text">
-          <string>TextLabel</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_4">
-       <item>
-        <widget class="QListWidget" name="listWidget"/>
-       </item>
-       <item>
-        <widget class="QComboBox" name="comboBox"/>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <widget class="QListWidget" name="sponsorList"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="sponsorDropdown">
+           <item>
+            <property name="text">
+             <string>sponsor</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>intro</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>outro</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>interaction</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>selfpromo</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>music_offtopic</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>preview</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>poi_highlight</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>filler</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="loadingIndicator">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
