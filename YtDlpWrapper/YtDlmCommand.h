@@ -34,7 +34,7 @@ public:
     }
 
 
-    void executeWithFeedback(std::string fileOFfset,void (*pFunction)(std::string)) {
+    void executeWithFeedback(std::string fileOFfset,void (*pFunction)(int,int)) {
         Executor::executeWithFeedBack(this->getCommand(),fileOFfset,pFunction);
     }
 };

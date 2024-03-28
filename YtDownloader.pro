@@ -19,12 +19,19 @@ SOURCES += \
     ytdownloader.cpp \
     YtDlpWrapper/YoutubeDownloader.cpp \
     YtDlpWrapper/Executor.cpp \
-    YtDlpWrapper/Logger.cpp
+    YtDlpWrapper/Logger.cpp \
+    YtDlpWrapper/YoutubeDownloader.cpp \
+    YtDlpWrapper/DownloadRequest.cpp
 
 HEADERS += \
     Worker.h \
     videolistelement.h \
-    ytdownloader.h
+    ytdownloader.h \
+    # YtDlpWrapper/YoutubeDownloader.h \
+    # YtDlpWrapper/Executor.h \
+    # YtDlpWrapper/Logger.h \
+    # YtDlpWrapper/YoutubeDownloader.h \
+    # YtDlpWrapper/DownloadRequest.h
 
 FORMS += \
     videolistelement.ui \
@@ -41,3 +48,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 INCLUDEPATH += /YtDlpWrapper
+
+RESOURCES += \
+    loadingIndicator.qrc

@@ -36,12 +36,6 @@ void DownloadRequest::setYtVideo(YoutubeVideo *ytVideo) {
 
 
 
-std::ostream &operator<<(std::ostream &os, const DownloadRequest &request) {
-    os << "ytVideo: " << request.ytVideo << " location: " << request.location << " timeStampStart: "
-       << request.timeStampStart << " timeStampStop: " << request.timeStampStop;
-    return os;
-}
-
 DownloadRequest::DownloadRequest(YoutubeVideo *ytVideo, const std::string &location) : ytVideo(ytVideo),
                                                                                        location(location) {}
 
@@ -57,14 +51,15 @@ YtDlmCommand DownloadRequest::getCommand()
 {
     YtDlmCommandBuilder* ytDlmCommandBuilder= (new YtDlmCommandBuilder())
             ->addLocation(this->getLocation())
-            ->addFormat("mp4")
+            ->addFormat(this->format)
             ->addLink(getYtVideo()
-                              ->getUrl())
-            ->addSection(timeStampStart,timeStampStop)
-            ->setSponsrBlock(blocks);
+            ->getUrl())
+            ->addSection(timeStampStart,timeStampStop);
+            if(this->blocks.size()>0)
+            ytDlmCommandBuilder->setSponsrBlock(blocks);
     if(res>0)
     {
-        ytDlmCommandBuilder->setRes(res);
+                ytDlmCommandBuilder->addRes(res);
     }
 
     YtDlmCommand ytDlmCommand=ytDlmCommandBuilder->build();
@@ -75,16 +70,23 @@ void DownloadRequest::execute()
 {
     YtDlmCommand ytDlmCommand=this->getCommand();
     Logger::info("executing Download Request: "+ytDlmCommand.getCommand());
-    ytDlmCommand.execute();
+    ytDlmCommand.execute(this->getYtVideo()->getName());
 
 }
 
-void DownloadRequest::executeWithFeeback(void (*param)(std::string)) {
+void DownloadRequest::executeWithFeeback(void (*param)(int,int)) {
 
 
     YtDlmCommand ytDlmCommand=this->getCommand();
     Logger::info("executing Download Request: "+ytDlmCommand.getCommand());
-    ytDlmCommand.executeWithFeedback(param);
+    ytDlmCommand.executeWithFeedback(this->getYtVideo()->getName(),param);
+}
+
+std::ostream &operator<<(std::ostream &os, const DownloadRequest &request) {
+    os << "ytVideo: " << *request.ytVideo << " location: " << request.location << " timeStampStart: "
+       << request.timeStampStart << " timeStampStop: " << request.timeStampStop << " blocks: " << request.blocks.size()
+       << " res: " << request.res;
+    return os;
 }
 
 

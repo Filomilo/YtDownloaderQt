@@ -87,12 +87,12 @@ private:
         ss.close();
         // Executor::clearResut();
                Logger::info("test 2" );
-       // callback(0,urls.size()+1);
+       callback(0,urls.size()+1);
            Logger::info("start iteraiont" );
         for (int var = 0; var < urls.size(); ++var) {
             Logger::info("loading vidoe: + "+urls[var]);
              this->loadSingleVideo(urls[var],callback,var);
-            // callback(var,urls.size());
+            callback(var,urls.size()+1);
         }
         Executor::clearResut();
 
@@ -126,7 +126,7 @@ public:
                 loadPlaylist(link,nullptr);
             }
             else {
-                loadSingleVideo(link,nullptr,0);
+                loadSingleVideo(link,nullptr,rand());
             }
             Logger::info("size; "+ list.size());
 //            Logger::info("Execution Result " + executionResult.out);
@@ -136,12 +136,14 @@ public:
             Logger::error("errror while loading files from link: "+std::string(ex.what()));
             return false;
         }
+        Executor::clearResut();
 
         return true;
     }
 
     bool loadFilesWithCallBack(std::string link,const std::function<void(int, int)> callback)
     {
+          srand(time(0));
         this->videosList.clear();
         try {
             Logger::info("Loaing files form link: " + link);
@@ -154,7 +156,7 @@ public:
                 loadSingleVideo(link,callback,rand());
             }
             Logger::info("size; "+ list.size());
-            // callback(this->getVideos().at(0));
+            // callback(this->getVideos().at(0)s);
 //            Logger::info("Execution Result " + executionResult.out);
         }
         catch (std::exception ex)

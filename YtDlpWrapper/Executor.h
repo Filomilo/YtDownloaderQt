@@ -27,7 +27,7 @@ private:
         CreateDirectoryW (wideProgramTmpPath.c_str(),NULL);
          std::string path=programTmpPath+name;
   //       Logger::info("path: "+path);
-  // std::replace(path.begin(), path.end(), '\\', '/');
+  std::replace(path.begin(), path.end(), '\"', ' ');
   // Logger::info("path: "+path);
         return path;
     }
@@ -39,7 +39,7 @@ private:
         std::string line;
         while(!infile.is_open()|| !infile.good() || infile.eof() || line.length()==0 )
         {
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            std::this_thread::sleep_for(std::chrono::milliseconds(10));
             infile.close();
             infile.open(path);
             std::getline(infile, line);
@@ -58,7 +58,7 @@ public:
           std::string file=getFilePath("result_"+fileOffset+".dat");
         command="cmd /c "+command;
 
-        command+=" > "+file+"\n";
+        command+=" > \""+file+"\"\n";
         // std::cout<<"command: "+ command;
         Logger::info("Executing: "+ command);
         int rc=WinExec(command.c_str(), SW_HIDE);
@@ -88,9 +88,10 @@ public:
     }
     static nlohmann::json executeWithJson(std::string command,std::string fileOffset)
     {
+       
         std::string file=getFilePath("result_"+fileOffset+".dat");
            command="cmd /c "+command;
-        command+=" > "+file+"\n";
+        command+=" > \""+file+"\"\n";
         // std::cout<<"command: "+ command;
         Logger::info("Executing for json: "+ command);
         int rc= WinExec(command.c_str(), SW_HIDE); //system(command.c_str());
@@ -111,8 +112,8 @@ public:
     static void clearResut()
     {
 
-            // for (const auto& entry : std::filesystem::directory_iterator(getFilePath("")))
-            //     std::filesystem::remove_all(entry.path());
+            for (const auto& entry : std::filesystem::directory_iterator(getFilePath("")))
+                std::filesystem::remove_all(entry.path());
 
         // int res= std::remove(getFilePath("result.dat").c_str());
         // std::string command="cmd del "+ getFilePath("result.dat");
@@ -149,7 +150,7 @@ public:
 
 
 
-static void executeWithFeedBack(std::string basicString,std::string fileOffset, void (*pFunction)(std::string))
+static void executeWithFeedBack(std::string basicString,std::string fileOffset, void (*pFunction)(int,int))
     {
        std::string file=getFilePath("result_"+fileOffset+".dat");
         std::string command="cmd.exe /c "+basicString;
@@ -163,7 +164,7 @@ static void executeWithFeedBack(std::string basicString,std::string fileOffset, 
         }
         while (fgets(buffer.data(), static_cast<int>(buffer.size()), pipe.get()) != nullptr) {
             result = buffer.data();
-            pFunction(result);
+
         }
         return;
     }

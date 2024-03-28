@@ -1,3 +1,4 @@
+#pragma once
 #ifndef YTDOWNLOADER_H
 #define YTDOWNLOADER_H
 
@@ -23,12 +24,21 @@ private slots:
 
     void on_searchButon_clicked();
   void onLoadFinshed();
-private:
+    void on_videoradio_clicked();
+
+  void on_audioRadio_clicked();
+
+    void on_sponsorDropdown_textActivated(const QString &arg1);
+
+  void on_donwladAlButton_clicked();
+
+  private:
     Ui::YtDownloader *ui;
     void addVideoComponents(YoutubeVideo vid);
     YoutubeDownloader* youtubeDownloader;
     void clearLoadedVideos();
     Worker* worker;
     QThread* thread;
+    void onDownloadFinshed();
 };
 #endif // YTDOWNLOADER_H

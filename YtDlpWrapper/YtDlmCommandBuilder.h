@@ -58,7 +58,7 @@ YtDlmCommand build()
         return this;
     }
 
-    void setRes(int res) {
+    void addRes(int res) {
         this->ytDlmCommand.addToCommand("-S res:"+ std::to_string(res));
     }
 };
