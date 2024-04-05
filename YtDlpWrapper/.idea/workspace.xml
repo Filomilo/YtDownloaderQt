@@ -21,23 +21,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd1c85bb-cd3e-49f1-aeb8-7e74a5ae9f55" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../assets/loading.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../loadingIndicator.qrc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Worker.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Worker.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Worker.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Worker.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DownloadRequest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/DownloadRequest.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DownloadRequest.h" beforeDir="false" afterPath="$PROJECT_DIR$/DownloadRequest.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/Executor.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logger.h" beforeDir="false" afterPath="$PROJECT_DIR$/Logger.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoutubeDownloader.h" beforeDir="false" afterPath="$PROJECT_DIR$/YoutubeDownloader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JsonParser.h" beforeDir="false" afterPath="$PROJECT_DIR$/JsonParser.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoutubeVideo.h" beforeDir="false" afterPath="$PROJECT_DIR$/YoutubeVideo.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YtDlmCommand.h" beforeDir="false" afterPath="$PROJECT_DIR$/YtDlmCommand.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YtDlmCommandBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/YtDlmCommandBuilder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-392e8a457eb17f288c9e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-2ec58b45fb1414a207f1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-e9209ea568fb000c4c77.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2024-03-11T08-45-13-0695.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-YtDlpWrapper-Debug-0738a42fcc4ad26c0555.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-37b165a130acfa0ad0f8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeCCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeCXXCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeRCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeRCCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeSystem.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/debug.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../YtDownloader.pro" beforeDir="false" afterPath="$PROJECT_DIR$/../YtDownloader.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build/Desktop_Qt_6_6_2_MSVC2019_64bit-Profile/release/moc_predefs.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../videolistelement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../videolistelement.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../videolistelement.h" beforeDir="false" afterPath="$PROJECT_DIR$/../videolistelement.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../videolistelement.ui" beforeDir="false" afterPath="$PROJECT_DIR$/../videolistelement.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ytdownloader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../ytdownloader.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ytdownloader.h" beforeDir="false" afterPath="$PROJECT_DIR$/../ytdownloader.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ytdownloader.ui" beforeDir="false" afterPath="$PROJECT_DIR$/../ytdownloader.ui" afterDir="false" />
@@ -71,22 +93,17 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/proejcts/qtYTDownalde/YtDownloaderQt&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;dynamic.analysis.tools&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;CPPToolchains&quot;,
     &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager">
-    <configuration name="YtDlpWrapper" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="YtDlpWrapper" TARGET_NAME="YtDlpWrapper" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="YtDlpWrapper" RUN_TARGET_NAME="YtDlpWrapper">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -105,6 +122,13 @@
       <workItem from="1710146711697" duration="2000" />
       <workItem from="1710170403584" duration="4796000" />
       <workItem from="1711391438011" duration="1062000" />
+      <workItem from="1712077080659" duration="1328000" />
+      <workItem from="1712231154342" duration="5474000" />
+      <workItem from="1712238868763" duration="2752000" />
+      <workItem from="1712244690061" duration="1870000" />
+      <workItem from="1712250775182" duration="1527000" />
+      <workItem from="1712257768132" duration="1000" />
+      <workItem from="1712291440641" duration="2464000" />
     </task>
     <servers />
   </component>
@@ -116,6 +140,17 @@
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticFoundErrors value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/YtDlmCommandBuilder.h</url>
+          <line>62</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

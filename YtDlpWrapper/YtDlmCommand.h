@@ -20,6 +20,8 @@ public:
 
     void addToCommand(std::string command)
     {
+        Logger::info("adding to comamnd: " + command);
+        Logger::info("a this->command: " +  this->command);
         this->command+=command+" ";
     }
 

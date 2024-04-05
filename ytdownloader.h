@@ -25,7 +25,7 @@ private slots:
     void on_searchButon_clicked();
   void onLoadFinshed();
     void on_videoradio_clicked();
-
+    void onDownloadFinshed();
   void on_audioRadio_clicked();
 
     void on_sponsorDropdown_textActivated(const QString &arg1);
@@ -39,6 +39,11 @@ private slots:
     void clearLoadedVideos();
     Worker* worker;
     QThread* thread;
-    void onDownloadFinshed();
+    Worker* workerDownload;
+    QThread* threadDownload;
+
+    void setupWorkerLoadTherad();
+    void setupWorkerDownloadTherad();
+    bool isAudio=false;
 };
 #endif // YTDOWNLOADER_H

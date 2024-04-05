@@ -46,7 +46,7 @@
            <string notr="true">QPlainTextEdit {   border-radius: 100px;  }</string>
           </property>
           <property name="plainText">
-           <string>https://youtu.be/gAJRFuot2vY?si=kCJRpCdDeb0DwPmJ</string>
+           <string>https://www.youtube.com/playlist?list=PLwZxnfCSrqUsWdDJSBQI6fnikh73Bc0LL</string>
           </property>
          </widget>
         </item>
@@ -130,6 +130,12 @@
            </item>
            <item>
             <widget class="QComboBox" name="FormatDropDown">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="frame">
+              <bool>true</bool>
+             </property>
              <item>
               <property name="text">
                <string>mp4</string>
@@ -144,8 +150,11 @@
            </item>
            <item>
             <widget class="QComboBox" name="qualityDropDown_2">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="currentText">
-              <string>1080</string>
+              <string>240</string>
              </property>
              <item>
               <property name="text">

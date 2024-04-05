@@ -4,7 +4,13 @@
 #include "YtDlpWrapper/YoutubeVideo.h"
 #include <QNetworkAccessManager>
 #include <QMovie>
-
+#include <QFileDialog>
+#include "videolistelement.h"
+#include "YtDlpWrapper/YoutubeVideo.h"
+#include "YtDlpWrapper/YoutubeDownloader.h"
+#include "Worker.h"
+#include <QMovie>
+#include <QFileDialog>
 VideoListElement::VideoListElement(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::VideoListElement)
@@ -14,6 +20,10 @@ VideoListElement::VideoListElement(QWidget *parent)
     ui->loadingCricle->setMovie(movie);
     movie->start();
     ui->loadingCricle->hide();
+    on_videoradio_clicked();
+    ui->FormatDropDown->setVisible(false);
+    ui->qualityDropDown->setVisible(false);
+    setupWorkerDownloadTherad();
 }
 
 int getSecondFromTime(QTime time)
@@ -57,6 +67,7 @@ void VideoListElement::setup(YoutubeVideo data)
     this->setTitle(data.getName());
     this->setLength(data.getDuration());
     this->setThumbnail(data.getThumbnail());
+    this->loaded=data;
 }
 
 void VideoListElement::setTitle(std::string title)
@@ -113,6 +124,7 @@ void VideoListElement::on_audioRadio_clicked()
     ui->qualityDropDown->addItem("120");
     ui->qualityDropDown->addItem("240");
     ui->qualityDropDown->addItem("360");
+    this->isAudio=true;
 }
 
 
@@ -128,6 +140,7 @@ void VideoListElement::on_videoradio_clicked()
     ui->qualityDropDown->addItem("480");
     ui->qualityDropDown->addItem("720");
     ui->qualityDropDown->addItem("1080");
+      this->isAudio=false;
 }
 
 
@@ -202,3 +215,98 @@ void VideoListElement::resolveEndTime(){
         on_sliderEnd_valueChanged(secStart);
     }
 }
+
+
+
+void VideoListElement::setupWorkerDownloadTherad()
+{
+    threadDownload=new QThread();
+    workerDownload=new Worker();
+    workerDownload->moveToThread(threadDownload);
+    //connect(workerDownload,SIGNAL(progresBarChanged(int)),ui->progressBar,SLOT(setValue(int)));
+    connect(workerDownload,SIGNAL(videosListDownlaodRequest()),threadDownload,SLOT(start()));
+    connect(threadDownload,SIGNAL(started()),workerDownload,SLOT(downloadStart()));
+    // connect(workerDownload,SIGNAL(downloadFinished()),this,SLOT( onDownloadFinshed()));
+    // connect(workerDownload,SIGNAL(downloadFinished()),threadDownload,SLOT(quit()),Qt::DirectConnection);
+    connect(workerDownload,SIGNAL(downloadFinished()),this,SLOT( onDownloadFinshed()));
+}
+
+
+void VideoListElement::onDownloadFinshed()
+{
+    qDebug()<<"downalod finshed";;
+    ui->loadingIndicator->hide();
+    ui->downloadButton->setEnabled(true);
+    ui->FormatDropDown->setEnabled(true);
+    ui->qualityDropDown->setEnabled(true);
+    ui->sliderEnd->setEnabled(true);
+    ui->sliderStart->setEnabled(true);
+    ui->timeEnd->setEnabled(true);
+    ui->timeStart->setEnabled(true);
+    ui->sponsorDropdown->setEnabled(true);
+    ui->videoradio->setEnabled(true);
+    ui->audioRadio->setEnabled(true);
+
+}
+
+void VideoListElement::on_downloadButton_clicked()
+{
+    std::string format=this->isAudio?".mp3":".mp4";
+    std::string defaultName=this->loaded.getName()+format;
+    QString file = QFileDialog::getSaveFileName(this, tr("Save as..."),QString::fromLocal8Bit(defaultName.c_str()), tr(this->isAudio?".mp3":".mp4"));
+    qDebug()<<"foramt: "<<format;
+    if(file.length()>0)
+    {
+        qDebug()<<"selcted dir: "<<file;
+
+
+
+
+
+
+
+
+        std::vector<DownloadRequest> requests;
+        DownloadRequest request;
+        request.setYtVideo(&loaded);
+        request.setLocation(file.toStdString());
+        request.setIsAudio(  isAudio);
+        request.setOverwriteName(  true);
+        // timeEdit.time().toString("h:m:s ap");
+        // m:ss
+        request.setVideoStart(ui->timeStart->dateTime().time().toString("m:ss").toStdString());
+            request.setVideoStop(ui->timeEnd->dateTime().time().toString("m:ss").toStdString());
+
+        int itemCount = ui->sponsorList->count();
+
+
+        std::vector<std::string> blocks;
+        for (int i = 0; i < itemCount; ++i) {
+            QListWidgetItem* item = ui->sponsorList->item(i);
+            qDebug() << item->text();
+            blocks.push_back(item->text().toStdString());
+        }
+        request.setBlocks(blocks);
+        requests.push_back(request);
+
+
+ this->workerDownload->requestDownload(requests);
+
+
+
+
+        qDebug()<<"downalod start";;
+        ui->loadingIndicator->show();
+        ui->downloadButton->setEnabled(false);
+        ui->FormatDropDown->setEnabled(false);
+        ui->qualityDropDown->setEnabled(false);
+        ui->sliderEnd->setEnabled(false);
+        ui->sliderStart->setEnabled(false);
+        ui->timeEnd->setEnabled(false);
+        ui->timeStart->setEnabled(false);
+        ui->sponsorDropdown->setEnabled(false);
+        ui->videoradio->setEnabled(false);
+            ui->audioRadio->setEnabled(false);
+    }
+}
+

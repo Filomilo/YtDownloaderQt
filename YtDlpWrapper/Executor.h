@@ -59,32 +59,46 @@ public:
         command="cmd /c "+command;
 
         command+=" > \""+file+"\"\n";
-        // std::cout<<"command: "+ command;
         Logger::info("Executing: "+ command);
+
+
+        Logger::info(" STARTUPINFO  si;");
+        STARTUPINFO  si;
+        Logger::info("   PROCESS_INFORMATION pi;");
+        PROCESS_INFORMATION pi;
+        Logger::info("      ZeroMemory(&si, sizeof(si));");
+        ZeroMemory(&si, sizeof(si));
+        Logger::info("    ZeroMemory(&si, sizeof(si));");
+        si.cb= sizeof(si);
+        Logger::info("    ZeroMemory(&pi,sizeof(pi));");
+        ZeroMemory(&pi,sizeof(pi));
+        Logger::info(   "     std::wstring wcommand = std::wstring(command.begin(), command.end());");
+        std::wstring wcommand = std::wstring(command.begin(), command.end());
+        Logger::info(   "          wchar_t* toExecute= const_cast<wchar_t *>(wcommand.c_str());");
+        wchar_t* toExecute= const_cast<wchar_t *>(wcommand.c_str());
+        Logger::info("Create precess");
+        if (!CreateProcess(NULL, toExecute, NULL, NULL, FALSE, CREATE_NO_WINDOW , NULL, NULL, &si, &pi)) {
+       Logger::error("CreateProcess failed");
+            exit(1);
+        }
+        WaitForSingleObject(pi.hProcess, INFINITE);
+
+        // Close process and thread handles.
+        CloseHandle(pi.hProcess);
+        CloseHandle(pi.hThread);
+
+
+
+
+
+
+
         int rc=WinExec(command.c_str(), SW_HIDE);
-//        FILE * file=fopen("result.dat","r");
 
-        // infile.getline()
-        // Logger::info("infile open: "+ std::to_string(infile.is_open()));;        // std::string line;
-        // while (std::getline(infile,line))
-        // {
-        //     // buffer+=line+"\n";
-        //     Logger::info("line: " +buffer);
-        // }
-
-//        system("rm result.dat");
 
         std::ifstream infile=openStreamToFile(file);
         return infile;
 
-////        int rc=fclose(file);
-////        if (rc<0)
-////            throw std::runtime_error("Couldnt close result.dat");
-//        int res= std::remove(getFilePath("result.dat").c_str());
-////
-//        if (res<0)
-//            throw std::runtime_error("Couldnt remove result.dat");
-//        return ExecutionResult(rc,buffer,"");
     }
     static nlohmann::json executeWithJson(std::string command,std::string fileOffset)
     {
@@ -103,7 +117,7 @@ public:
         nlohmann::json data= nlohmann::json::parse(infile);
                    Logger::info("closing stream");
         infile.close();
-        Logger::info("json dump: "+data.dump());
+//        Logger::info("json dump: "+data.dump());
 
 
         return data;

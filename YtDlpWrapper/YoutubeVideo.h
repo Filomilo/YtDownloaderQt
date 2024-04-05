@@ -9,6 +9,8 @@
 #include <vector>
 #include <sstream>
 #include <iostream>
+#include <algorithm>
+
 class YoutubeVideo {
 
     private:
@@ -28,7 +30,9 @@ public:
     }
 
     void setName(const std::string &name) {
-        YoutubeVideo::name = name;
+        std::string tmp=name;
+        std::replace( tmp.begin(), tmp.end(), '\"', ' ');
+        YoutubeVideo::name = tmp;
     }
 
     const std::string &getUrl() const {

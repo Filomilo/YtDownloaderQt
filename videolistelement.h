@@ -5,6 +5,8 @@
 #include <QWidget>
 #include "YtDlpWrapper/YoutubeVideo.h"
 #include <cstdio>
+#include "Worker.h"
+
 namespace Ui {
 class VideoListElement;
 }
@@ -38,8 +40,10 @@ private slots:
     void on_timeEnd_timeChanged(const QTime &time);
 
    void on_timeStart_userTimeChanged(const QTime &time);
+  void onDownloadFinshed();
+     void on_downloadButton_clicked();
 
-   private:
+ private:
     Ui::VideoListElement *ui;
 
     void setTitle(std::string title);
@@ -50,6 +54,17 @@ private slots:
     void setLength(std::string length);
     void resolveStartTime();
     void resolveEndTime();
+      bool isAudio=false;
+    Worker* worker;
+    QThread* thread;
+    Worker* workerDownload;
+    QThread* threadDownload;
+    YoutubeVideo loaded;
+    void setupWorkerDownloadTherad();
 };
+
+
+
+
 
 #endif // VIDEOLISTELEMENT_H

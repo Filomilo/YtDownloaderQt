@@ -9,6 +9,7 @@
 class YtDlmCommandBuilder {
 private:
     YtDlmCommand ytDlmCommand;
+    bool isAudio=false;
 public:
 YtDlmCommandBuilder()
 {}
@@ -25,14 +26,18 @@ YtDlmCommand build()
 }
     YtDlmCommandBuilder* addLocation(std::string location)
     {
-        this->ytDlmCommand.addToCommand(" -o \""+location+"/%(title)s_%(id)s.%(ext)s\"");
+        Logger::info("additnig lcoaiotn: ");
+        this->ytDlmCommand.addToCommand(" -o \""+location+"\"");
         return this;
     }
 
             YtDlmCommandBuilder* addFormat(std::string format)
     {
+    if(this->isAudio)
+        this->ytDlmCommand.addToCommand(" --audio-format "+format+" --extract-audio ");
+    else
         this->ytDlmCommand.addToCommand(" -f "+format);
-        return this;
+    return this;
     }
     YtDlmCommandBuilder* addLink(std::string link)
     {
@@ -41,6 +46,7 @@ YtDlmCommand build()
     }
     YtDlmCommandBuilder* setSponsrBlock(std::vector<std::string> blocks)
     {
+        Logger::info("set sponsor lbokcs: "+std::to_string(blocks.size()));
     std::string toAdd="--sponsorblock-remove ";
     for(int i=0;i<blocks.size();i++)
     {
@@ -60,6 +66,12 @@ YtDlmCommand build()
 
     void addRes(int res) {
         this->ytDlmCommand.addToCommand("-S res:"+ std::to_string(res));
+    }
+
+    YtDlmCommandBuilder* setIsAudio(bool b) {
+        isAudio=b;
+
+        return this;
     }
 };
 

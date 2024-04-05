@@ -13,7 +13,21 @@ YtDownloader::YtDownloader(QWidget *parent)
 {
     ui->setupUi(this);
     this->youtubeDownloader=YoutubeDownloader::getInstance();
+    setupWorkerLoadTherad();
+    setupWorkerDownloadTherad();
+    QMovie *movie = new QMovie(":/gifs/assets/loading.gif");
+    ui->loadingCircle->setMovie(movie);
+    movie->start();
+    ui->loadingCircle->hide();
+    on_searchButon_clicked();
+    ui->donwladAlButton->setEnabled(false);
+    this->on_videoradio_clicked();
+    ui->FormatDropDown->setVisible(false);
+    ui->qualityDropDown_2->setVisible(false);
+}
 
+void YtDownloader::setupWorkerLoadTherad()
+{
     thread=new QThread();
     worker=new Worker();
     worker->moveToThread(thread);
@@ -22,14 +36,20 @@ YtDownloader::YtDownloader(QWidget *parent)
     connect(thread,SIGNAL(started()),worker,SLOT(videosListLoad()));
     connect(worker,SIGNAL(loadFinished()),thread,SLOT(quit()),Qt::DirectConnection);
     connect(worker,SIGNAL(loadFinished()),this,SLOT( onLoadFinshed()));
-    connect(worker,SIGNAL(downloadFinished()),this,SLOT( onDownloadFinshed()));
-    QMovie *movie = new QMovie(":/gifs/assets/loading.gif");
-    ui->loadingCircle->setMovie(movie);
-    movie->start();
-    ui->loadingCircle->hide();
-    on_searchButon_clicked();
-    ui->donwladAlButton->setEnabled(false);
-    this->on_videoradio_clicked();
+
+
+}
+void YtDownloader::setupWorkerDownloadTherad()
+{
+    threadDownload=new QThread();
+    workerDownload=new Worker();
+    workerDownload->moveToThread(threadDownload);
+    connect(workerDownload,SIGNAL(progresBarChanged(int)),ui->progressBar,SLOT(setValue(int)));
+    connect(workerDownload,SIGNAL(videosListDownlaodRequest()),threadDownload,SLOT(start()));
+    connect(threadDownload,SIGNAL(started()),workerDownload,SLOT(downloadStart()));
+    // connect(workerDownload,SIGNAL(downloadFinished()),this,SLOT( onDownloadFinshed()));
+    // connect(workerDownload,SIGNAL(downloadFinished()),threadDownload,SLOT(quit()),Qt::DirectConnection);
+ connect(workerDownload,SIGNAL(downloadFinished()),this,SLOT( onDownloadFinshed()));
 }
 
 
@@ -108,12 +128,11 @@ void YtDownloader::on_videoradio_clicked()
     ui->FormatDropDown->addItem("mp4");
     ui->FormatDropDown->addItem("mkv");
     ui->qualityDropDown_2->clear();
-    ui->qualityDropDown_2->addItem("144");
-     ui->qualityDropDown_2->addItem("240");
      ui->qualityDropDown_2->addItem("360");
       ui->qualityDropDown_2->addItem("480");
       ui->qualityDropDown_2->addItem("720");
            ui->qualityDropDown_2->addItem("1080");
+      this->isAudio=false;
 }
 
 
@@ -127,6 +146,7 @@ void YtDownloader::on_audioRadio_clicked()
     ui->qualityDropDown_2->addItem("120");
     ui->qualityDropDown_2->addItem("240");
     ui->qualityDropDown_2->addItem("360");
+     this->isAudio=true;
 }
 
 
@@ -164,14 +184,17 @@ void YtDownloader::on_donwladAlButton_clicked()
            for(int i=0;i<videos.size();i++)
         {
             DownloadRequest request;
-               request.setYtVideo(&videos[i]);
+               request.setYtVideo(new YoutubeVideo(videos[i]));
             std::string location=dir.toStdString()+"/"+videos[i].getName()+format;
              qDebug()<<"Locaton: "<<location;
+            qDebug()<<"vide url: "<< videos[i].getUrl();
+
               request.setLocation(dir.toStdString());
-             request.setRes(ui->qualityDropDown_2->itemData(ui->qualityDropDown_2->currentIndex()).toInt());
-              request.setFormat("mp4");
-   request.setRes(244);
+             request.setIsAudio(  isAudio);
+             // request.setRes(ui->qualityDropDown_2->currentText().toInt());
+              // request.setFormat(ui->FormatDropDown->currentText().toStdString());
              int itemCount = ui->sponsorList->count();
+
 
              std::vector<std::string> blocks;
              for (int i = 0; i < itemCount; ++i) {
@@ -180,16 +203,18 @@ void YtDownloader::on_donwladAlButton_clicked()
                  blocks.push_back(item->text().toStdString());
              }
              request.setBlocks(blocks);
-               requests.push_back(request);
+             requests.push_back(request);
+             // qDebug()<<"request: "<<request.toString();
 
         }
-           this->worker->requestDownload(requests);
+           this->workerDownload->requestDownload(requests);
+
     }
 }
 
 void YtDownloader::onDownloadFinshed()
 {
-    qDebug()<<"downalod finshed";;
+      qDebug()<<"downalod finshed";;
     ui->searchButon->setDisabled(false);
     ui->loadingCircle->hide();
 

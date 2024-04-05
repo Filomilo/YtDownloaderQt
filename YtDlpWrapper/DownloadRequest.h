@@ -10,11 +10,10 @@
 #include "Logger.h"
 #include "YtDlmCommandBuilder.h"
 #include "YtDlmCommand.h"
+#include "Logger.h"
 class DownloadRequest {
 public:
-    friend std::ostream &operator<<(std::ostream &os, const DownloadRequest &request);
-
-private:
+    private:
     YoutubeVideo* ytVideo;
     std::string location;
     std::string timeStampStart="0";
@@ -27,12 +26,11 @@ void addRes(const std::string &basicString);
 public:
     const YoutubeVideo* getYtVideo() const;
 
-    const std::string &getLocation() const;
+    std::string &getLocation() ;
 
     void setLocation( std::string location) {
-        Logger::info("location");
+        Logger::info("location set: "+ location);
         this->location = location;
-        Logger::info("location ens");
     }
     DownloadRequest(const YoutubeVideo* ytVideo, const std::string &location);
 
@@ -44,6 +42,7 @@ public:
     void setVideoStop(std::string d);
     void setFormat(std::string format)
     {
+           Logger::info("set fOMrat : "+format);
         this->format=format;
     }
 
@@ -60,9 +59,9 @@ public:
 
     std::string toString() {
         std::ostringstream os;
-        os << "ytVideo: " << *this->ytVideo << " location: " << this->location << " timeStampStart: "
-           << this->timeStampStart << " timeStampStop: " << this->timeStampStop << " blocks: " << this->blocks.size()
-           << " res: " << this->res;
+        os << "ytVideo: " << this->ytVideo << " location: " << this->location << " timeStampStart: "
+           << this->timeStampStart << " timeStampStop: " << this->timeStampStop << " format: " << this->format
+           << " blocks: " << this->blocks.size() << " res: " << this->res;
         return os.str();
     }
 
@@ -72,6 +71,20 @@ public:
 
 
     void executeWithFeeback(void (*param)(int,int));
+
+    friend std::ostream &operator<<(std::ostream &os, const DownloadRequest &request);
+
+    void setIsAudio(bool b);
+
+    bool isAudio=false;
+
+    bool getIsAudio() const;
+
+    std::string getSaveLocation();
+
+    void setOverwriteName(bool state);
+
+    bool IsOverwriteName=false;
 };
 
 

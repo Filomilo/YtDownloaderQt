@@ -22,7 +22,7 @@ class Worker: public QObject
 
 public slots:
     void videosListLoad();
-
+    void downloadStart();
 public:
        explicit Worker(QObject *parent = 0);
 
@@ -33,11 +33,12 @@ public:
 signals:
    void loadFinished();
     void videosListRequested();
-
+   void videosListDownlaodRequest();
    void progresBarChanged(const int &val);
    void downloadFinished();
    private:
    void updateProgresBar(int a, int b);
+       std::vector<DownloadRequest> requests;
     QMutex mutex;
     bool _working;
     bool _abort;

@@ -1,7 +1,7 @@
 #include "Worker.h"
 #include "YtDlpWrapper/YoutubeDownloader.h"
 #include "YtDlpWrapper/DownloadRequest.h"
-
+#include "windows.h"
 
 
 Worker::Worker(QObject *parent ):   QObject(parent)
@@ -43,7 +43,7 @@ void Worker::updateProgresBar(int a, int b)
 
 void Worker::videosListLoad(){
 
-
+  qDebug()<<"Thread vedo lsiut load \n";
     mutex.lock();
     _working = false;
     mutex.unlock();
@@ -54,14 +54,32 @@ void Worker::videosListLoad(){
 }
 void Worker::requestDownload(std::vector<DownloadRequest> requests)
 {
-      updateProgresBar(0,requests.size()+1);
-      for (int var = 0; var < requests.size(); ++var) {
-        updateProgresBar(var+1,requests.size()+1);
-          qDebug()<<requests.at(var).toString();
-        qDebug()<<"Commad: "<<requests.at(var).getCommand().getCommand();
-          requests.at(var).execute();
-      }
-          emit progresBarChanged(100);
-    emit downloadFinished();
 
+     qDebug()<<"Thread Downaldo start1111111";
+
+    mutex.lock();
+    this->requests=requests;
+
+    _working = true;
+    _abort = false;
+    qDebug()<<"Request worker dwonalod start in Thread "<<thread()->currentThreadId();
+    mutex.unlock();
+    qDebug()<<"emit videosListDownlaodRequest();";
+    emit videosListDownlaodRequest();
+
+}
+void Worker::downloadStart(){
+        qDebug()<<"downloadStart";
+    updateProgresBar(0,requests.size()+1);
+
+        for (int var = 0; var < requests.size(); ++var) {
+        updateProgresBar(var,requests.size()+1);
+          // updateProgresBar(var+1,requests.size()+1);
+            qDebug()<<"downloadStart: "<<requests.at(var).getYtVideo()->getUrl().size();
+            // qDebug()<<"Request sdonwalod : "<<requests.at(var).toString();
+          // qDebug()<<"Commad: "<<requests.at(var).toString();
+            requests.at(var).execute();
+        }
+        qDebug()<<" emit downloadFinished();";
+        emit downloadFinished();
 }
