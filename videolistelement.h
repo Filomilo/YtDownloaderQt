@@ -1,8 +1,15 @@
+#pragma once
 #ifndef VIDEOLISTELEMENT_H
 #define VIDEOLISTELEMENT_H
 #include <QNetworkReply>
 #include <QWidget>
 #include "YtDlpWrapper/YoutubeVideo.h"
+<<<<<<< HEAD
+=======
+#include <cstdio>
+#include "Worker.h"
+
+>>>>>>> playlist-download
 namespace Ui {
 class VideoListElement;
 }
@@ -23,7 +30,23 @@ private slots:
    void downloadThumbnailFinished(QNetworkReply *reply);
     void on_timeEnd_userTimeChanged(const QTime &time);
 
-private:
+   void on_audioRadio_clicked();
+
+    void on_videoradio_clicked();
+
+   void on_sponsorDropdown_textActivated(const QString &arg1);
+
+    void on_sliderStart_sliderMoved(int position);
+
+   void on_sliderEnd_valueChanged(int value);
+
+    void on_timeEnd_timeChanged(const QTime &time);
+
+   void on_timeStart_userTimeChanged(const QTime &time);
+  void onDownloadFinshed();
+     void on_downloadButton_clicked();
+
+ private:
     Ui::VideoListElement *ui;
 
     void setTitle(std::string title);
@@ -32,6 +55,22 @@ private:
     void setVideo();
     void addOrRemoveSponsorBlockElemnt(std::string element);
     void setLength(std::string length);
+<<<<<<< HEAD
+=======
+    void resolveStartTime();
+    void resolveEndTime();
+      bool isAudio=false;
+    Worker* worker;
+    QThread* thread;
+    Worker* workerDownload;
+    QThread* threadDownload;
+    YoutubeVideo loaded;
+    void setupWorkerDownloadTherad();
+>>>>>>> playlist-download
 };
+
+
+
+
 
 #endif // VIDEOLISTELEMENT_H

@@ -11,15 +11,19 @@
 #include "DonwloadRequestBuilder.h"
 #include "Logger.h"
 
-void outputFeedBack(std::string line)
+void outputFeedBack(int a , int b)
 {
-    Logger::info("lINE: \n"+line+"\n\n");
+//    Logger::info("lINE: \n"+"\n\n");
 }
 
 void listVideosSignle()
 {
     YoutubeDownloader* ytDownloader=YoutubeDownloader::getInstance();
+<<<<<<< HEAD
     ytDownloader->loadFilesWithCallBack("https://www.youtube.com/watch?v=f1A7SdVTlok",[](YoutubeVideo vid){Logger::info("Test");});
+=======
+    ytDownloader->loadFilesWithCallBack("https://www.youtube.com/watch?v=f1A7SdVTlok",[](int a, int b){Logger::info("Test");});
+>>>>>>> playlist-download
     Logger::info("Loaded videos data: ");
     int i=0;
     std::vector<std::string> blocks;
@@ -60,12 +64,37 @@ void listVideosPlaylist()
     }
 //    std::cout<<"tmp: "<<std::getenv("TMP");
 }
+void donwloadVideo()
+{
+    YoutubeDownloader* ytDownloader=YoutubeDownloader::getInstance();
+    ytDownloader->loadFiles("https://youtu.be/VGvj6bj4Sog?si=mtuLA1EfCmVfQSyA");
+    Logger::info("Loaded videos data: ");
+    int i=0;
+    for (YoutubeVideo yt: ytDownloader->getVideos()) {
+        std::cout<<"video["<<i++<<"]= "<<yt<<std::endl;
+        DownloadRequest* request=new DownloadRequest();
+        request->setYtVideo(&yt);
+        request->setVideoStart("01:00");
+        request->setVideoStop("02:00");
+        request->setLocation("D:\\temp\\New folder (4)");
+        request->setIsAudio(false);
+//        request->setFormat("flac");
+//        request->setRes(480);
 
+        request->execute();
+    }
+//    std::cout<<"tmp: "<<std::getenv("TMP");
+}
 
 int main(){
     // std::cout<<"test\n";
 
     // listVideosSignle();
+<<<<<<< HEAD
    listVideosPlaylist();
+=======
+//   listVideosPlaylist();
+    donwloadVideo();
+>>>>>>> playlist-download
     return 0;
 }

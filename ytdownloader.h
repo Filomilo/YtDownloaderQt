@@ -1,3 +1,4 @@
+#pragma once
 #ifndef YTDOWNLOADER_H
 #define YTDOWNLOADER_H
 
@@ -23,12 +24,33 @@ private slots:
 
     void on_searchButon_clicked();
   void onLoadFinshed();
+<<<<<<< HEAD
 private:
+=======
+    void on_videoradio_clicked();
+    void onDownloadFinshed();
+  void on_audioRadio_clicked();
+
+    void on_sponsorDropdown_textActivated(const QString &arg1);
+
+  void on_donwladAlButton_clicked();
+
+  private:
+>>>>>>> playlist-download
     Ui::YtDownloader *ui;
     void addVideoComponents(YoutubeVideo vid);
     YoutubeDownloader* youtubeDownloader;
     void clearLoadedVideos();
     Worker* worker;
     QThread* thread;
+<<<<<<< HEAD
+=======
+    Worker* workerDownload;
+    QThread* threadDownload;
+
+    void setupWorkerLoadTherad();
+    void setupWorkerDownloadTherad();
+    bool isAudio=false;
+>>>>>>> playlist-download
 };
 #endif // YTDOWNLOADER_H

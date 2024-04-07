@@ -24,7 +24,7 @@ public:
     }
 
 
-    static void error(std::basic_string<char, std::char_traits<char>, std::allocator<char>> basicString) {
+    static void error(std::string info) {
         std::cerr<<"Log Error: "<<info<<std::endl;
     }
 };

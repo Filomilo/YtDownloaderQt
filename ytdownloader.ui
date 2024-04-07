@@ -46,7 +46,11 @@
            <string notr="true">QPlainTextEdit {   border-radius: 100px;  }</string>
           </property>
           <property name="plainText">
+<<<<<<< HEAD
            <string>https://www.youtube.com/watch?v=XuUl7mx6k8c</string>
+=======
+           <string>https://www.youtube.com/playlist?list=PLwZxnfCSrqUsWdDJSBQI6fnikh73Bc0LL</string>
+>>>>>>> playlist-download
           </property>
          </widget>
         </item>
@@ -65,7 +69,7 @@
       <item>
        <widget class="QFrame" name="frame">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+         <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -73,7 +77,13 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>200</height>
+          <height>150</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>150</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -88,6 +98,167 @@
         <property name="lineWidth">
          <number>20</number>
         </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLabel" name="howManyVideos">
+           <property name="text">
+            <string>Videos: 0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="donwladAlButton">
+           <property name="text">
+            <string>donwload all</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <widget class="QRadioButton" name="videoradio">
+             <property name="text">
+              <string>Audio+video</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="audioRadio">
+             <property name="text">
+              <string>audio</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="FormatDropDown">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="frame">
+              <bool>true</bool>
+             </property>
+             <item>
+              <property name="text">
+               <string>mp4</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>mkv</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="qualityDropDown_2">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="currentText">
+              <string>240</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>240</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>360</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>480</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>720</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>1080</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QListWidget" name="sponsorList">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>300</height>
+              </size>
+             </property>
+             <property name="flow">
+              <enum>QListView::LeftToRight</enum>
+             </property>
+             <property name="viewMode">
+              <enum>QListView::ListMode</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="sponsorDropdown">
+             <item>
+              <property name="text">
+               <string>sponsor</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>intro</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>outro</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>interaction</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>selfpromo</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>music_offtopic</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>preview</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>poi_highlight</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>filler</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
        </widget>
       </item>
       <item>
@@ -108,7 +279,7 @@
            <x>0</x>
            <y>0</y>
            <width>759</width>
-           <height>338</height>
+           <height>350</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_4"/>
@@ -120,9 +291,44 @@
     <item>
      <widget class="QProgressBar" name="progressBar">
       <property name="value">
-       <number>24</number>
+       <number>0</number>
       </property>
      </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="loadingCircle">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="loadingIndicator.qrc">:/gifs/assets/loading.gif</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>
@@ -138,6 +344,8 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="loadingIndicator.qrc"/>
+ </resources>
  <connections/>
 </ui>

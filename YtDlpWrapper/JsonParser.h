@@ -62,11 +62,11 @@ public:
     static YoutubeVideo parseJsonVideo(nlohmann::json jsonData)
     {
     try {
-        Logger::info("\n\nParsing json: " +jsonData.dump());
+//        Logger::info("\n\nParsing json: " +jsonData.dump());
         YoutubeVideo ytV;
 
-        Logger::info("\n\nparsed json: " + jsonData.size());
-        Logger::info("auto subs");
+//        Logger::info("\n\nparsed json: " + jsonData.size());
+//        Logger::info("auto subs");
 //        Logger::info("formats: "+  std::to_string(jsonData["formts"].size()));
 //        for (auto it=jsonData["automatic_captions"].begin() ;it!=jsonData["requested_formats"].end();it++ ) {
 ////            std::cout<<"key: "<<it.key()<<std::endl;

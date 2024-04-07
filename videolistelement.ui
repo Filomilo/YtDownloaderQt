@@ -6,7 +6,11 @@
    <rect>
     <x>0</x>
     <y>0</y>
+<<<<<<< HEAD
     <width>347</width>
+=======
+    <width>495</width>
+>>>>>>> playlist-download
     <height>226</height>
    </rect>
   </property>
@@ -104,6 +108,12 @@
          </item>
          <item>
           <widget class="QComboBox" name="qualityDropDown">
+<<<<<<< HEAD
+=======
+           <property name="currentText">
+            <string>240</string>
+           </property>
+>>>>>>> playlist-download
            <item>
             <property name="text">
              <string>240</string>
@@ -143,21 +153,77 @@
           </widget>
          </item>
          <item>
+<<<<<<< HEAD
           <widget class="QTimeEdit" name="timeStart"/>
          </item>
          <item>
           <widget class="QSlider" name="sliderStart">
+=======
+          <widget class="QTimeEdit" name="timeStart">
+           <property name="displayFormat">
+            <string>m:ss</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QSlider" name="sliderStart">
+           <property name="singleStep">
+            <number>0</number>
+           </property>
+>>>>>>> playlist-download
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
           </widget>
          </item>
+<<<<<<< HEAD
+=======
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>90</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+>>>>>>> playlist-download
         </layout>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
          <item>
+<<<<<<< HEAD
           <widget class="QSlider" name="sliderEnd">
+=======
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>90</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QSlider" name="sliderEnd">
+           <property name="singleStep">
+            <number>1</number>
+           </property>
+>>>>>>> playlist-download
            <property name="value">
             <number>99</number>
            </property>
@@ -243,6 +309,38 @@
     </layout>
    </item>
    <item>
+<<<<<<< HEAD
+=======
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="loadingCricle">
+       <property name="minimumSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="loadingIndicator.qrc">:/gifs/assets/loading.gif</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+>>>>>>> playlist-download
     <widget class="QLabel" name="loadingIndicator">
      <property name="text">
       <string/>
@@ -251,6 +349,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="loadingIndicator.qrc"/>
+ </resources>
  <connections/>
 </ui>

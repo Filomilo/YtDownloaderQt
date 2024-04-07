@@ -6,6 +6,8 @@ QT += network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
+QMAKE_CXXFLAGS += -std=c++17
+QMAKE_CXXFLAGS += -stdlib=libc++
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -18,12 +20,23 @@ SOURCES += \
     ytdownloader.cpp \
     YtDlpWrapper/YoutubeDownloader.cpp \
     YtDlpWrapper/Executor.cpp \
-    YtDlpWrapper/Logger.cpp
+
+    YtDlpWrapper/Logger.cpp \
+
+    YtDlpWrapper/Logger.cpp \
+    YtDlpWrapper/YoutubeDownloader.cpp \
+    YtDlpWrapper/DownloadRequest.cpp
+
 
 HEADERS += \
     Worker.h \
     videolistelement.h \
-    ytdownloader.h
+    ytdownloader.h \
+    # YtDlpWrapper/YoutubeDownloader.h \
+    # YtDlpWrapper/Executor.h \
+    # YtDlpWrapper/Logger.h \
+    # YtDlpWrapper/YoutubeDownloader.h \
+    # YtDlpWrapper/DownloadRequest.h
 
 FORMS += \
     videolistelement.ui \
@@ -40,3 +53,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 INCLUDEPATH += /YtDlpWrapper
+
+
+RESOURCES += \
+    loadingIndicator.qrc
+
+RC_ICONS = ytDownalder.ico
