@@ -52,3 +52,4 @@ INCLUDEPATH += /YtDlpWrapper
 
 RESOURCES += \
     loadingIndicator.qrc
+RC_ICONS = ytDownalder.ico

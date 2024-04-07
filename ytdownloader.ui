@@ -46,7 +46,7 @@
            <string notr="true">QPlainTextEdit {   border-radius: 100px;  }</string>
           </property>
           <property name="plainText">
-           <string>https://www.youtube.com/playlist?list=PLwZxnfCSrqUsWdDJSBQI6fnikh73Bc0LL</string>
+           <string/>
           </property>
          </widget>
         </item>
