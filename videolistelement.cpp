@@ -246,6 +246,7 @@ void VideoListElement::onDownloadFinshed()
     ui->sponsorDropdown->setEnabled(true);
     ui->videoradio->setEnabled(true);
     ui->audioRadio->setEnabled(true);
+         ui->loadingCricle->hide();
 
 }
 
@@ -296,6 +297,7 @@ void VideoListElement::on_downloadButton_clicked()
 
 
         qDebug()<<"downalod start";;
+                ui->loadingCricle->show();
         ui->loadingIndicator->show();
         ui->downloadButton->setEnabled(false);
         ui->FormatDropDown->setEnabled(false);

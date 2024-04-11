@@ -19,7 +19,7 @@ YtDownloader::YtDownloader(QWidget *parent)
     ui->loadingCircle->setMovie(movie);
     movie->start();
     ui->loadingCircle->hide();
-    on_searchButon_clicked();
+    // on_searchButon_clicked();
     ui->donwladAlButton->setEnabled(false);
     this->on_videoradio_clicked();
     ui->FormatDropDown->setVisible(false);
