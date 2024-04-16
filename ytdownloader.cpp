@@ -207,6 +207,7 @@ void YtDownloader::on_donwladAlButton_clicked()
              // qDebug()<<"request: "<<request.toString();
 
         }
+            ui->loadingCircle->show();
            this->workerDownload->requestDownload(requests);
 
     }
@@ -220,6 +221,6 @@ void YtDownloader::onDownloadFinshed()
 
 
 
-        ui->donwladAlButton->setEnabled(false);
+        ui->donwladAlButton->setEnabled(true);
 
 }

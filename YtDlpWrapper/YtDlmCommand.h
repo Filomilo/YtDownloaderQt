@@ -15,6 +15,8 @@ private:
 public:
     YtDlmCommand()
     {
+        std::string currDir=std::filesystem::current_path().string();
+        Logger::info("current directory: "+ currDir);
         command="yt-dlp --newline  ";
     }
 
