@@ -20,13 +20,9 @@ SOURCES += \
     ytdownloader.cpp \
     YtDlpWrapper/YoutubeDownloader.cpp \
     YtDlpWrapper/Executor.cpp \
-
-    YtDlpWrapper/Logger.cpp \
-
     YtDlpWrapper/Logger.cpp \
     YtDlpWrapper/YoutubeDownloader.cpp \
     YtDlpWrapper/DownloadRequest.cpp
-
 
 HEADERS += \
     Worker.h \
@@ -54,8 +50,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 INCLUDEPATH += /YtDlpWrapper
 
-
 RESOURCES += \
     loadingIndicator.qrc
-
 RC_ICONS = ytDownalder.ico

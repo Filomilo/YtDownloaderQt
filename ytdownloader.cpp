@@ -35,7 +35,7 @@ YtDownloader::YtDownloader(QWidget *parent)
     ui->loadingCircle->setMovie(movie);
     movie->start();
     ui->loadingCircle->hide();
-    on_searchButon_clicked();
+    // on_searchButon_clicked();
     ui->donwladAlButton->setEnabled(false);
     this->on_videoradio_clicked();
     ui->FormatDropDown->setVisible(false);
@@ -226,6 +226,7 @@ void YtDownloader::on_donwladAlButton_clicked()
              // qDebug()<<"request: "<<request.toString();
 
         }
+            ui->loadingCircle->show();
            this->workerDownload->requestDownload(requests);
 
     }
@@ -239,7 +240,7 @@ void YtDownloader::onDownloadFinshed()
 
 
 
-        ui->donwladAlButton->setEnabled(false);
+        ui->donwladAlButton->setEnabled(true);
 
 >>>>>>> playlist-download
 }

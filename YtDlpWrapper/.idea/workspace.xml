@@ -22,47 +22,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fd1c85bb-cd3e-49f1-aeb8-7e74a5ae9f55" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../Worker.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Worker.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Worker.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Worker.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownloadRequest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/DownloadRequest.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DownloadRequest.h" beforeDir="false" afterPath="$PROJECT_DIR$/DownloadRequest.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Executor.h" beforeDir="false" afterPath="$PROJECT_DIR$/Executor.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JsonParser.h" beforeDir="false" afterPath="$PROJECT_DIR$/JsonParser.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoutubeVideo.h" beforeDir="false" afterPath="$PROJECT_DIR$/YoutubeVideo.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YtDlmCommand.h" beforeDir="false" afterPath="$PROJECT_DIR$/YtDlmCommand.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YtDlmCommandBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/YtDlmCommandBuilder.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-392e8a457eb17f288c9e.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-2ec58b45fb1414a207f1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-e9209ea568fb000c4c77.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2024-03-11T08-45-13-0695.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-YtDlpWrapper-Debug-0738a42fcc4ad26c0555.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-37b165a130acfa0ad0f8.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeCCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeRCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeRCCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CMakeSystem.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.25.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/debug.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/debug.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../YtDownloader.pro" beforeDir="false" afterPath="$PROJECT_DIR$/../YtDownloader.pro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../videolistelement.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../videolistelement.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../videolistelement.h" beforeDir="false" afterPath="$PROJECT_DIR$/../videolistelement.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ytdownloader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../ytdownloader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ytdownloader.h" beforeDir="false" afterPath="$PROJECT_DIR$/../ytdownloader.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ytdownloader.ui" beforeDir="false" afterPath="$PROJECT_DIR$/../ytdownloader.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,6 +91,7 @@
       <workItem from="1712250775182" duration="1527000" />
       <workItem from="1712257768132" duration="1000" />
       <workItem from="1712291440641" duration="2464000" />
+      <workItem from="1713260441808" duration="1137000" />
     </task>
     <servers />
   </component>

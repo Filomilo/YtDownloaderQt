@@ -119,12 +119,13 @@ void Worker::downloadStart(){
 
         for (int var = 0; var < requests.size(); ++var) {
         updateProgresBar(var,requests.size()+1);
-          // updateProgresBar(var+1,requests.size()+1);
+          updateProgresBar(var+1,requests.size()+1);
             qDebug()<<"downloadStart: "<<requests.at(var).getYtVideo()->getUrl().size();
             // qDebug()<<"Request sdonwalod : "<<requests.at(var).toString();
           // qDebug()<<"Commad: "<<requests.at(var).toString();
             requests.at(var).execute();
         }
+          updateProgresBar(1,1);
         qDebug()<<" emit downloadFinished();";
         emit downloadFinished();
 }

@@ -46,11 +46,7 @@
            <string notr="true">QPlainTextEdit {   border-radius: 100px;  }</string>
           </property>
           <property name="plainText">
-<<<<<<< HEAD
-           <string>https://www.youtube.com/watch?v=XuUl7mx6k8c</string>
-=======
-           <string>https://www.youtube.com/playlist?list=PLwZxnfCSrqUsWdDJSBQI6fnikh73Bc0LL</string>
->>>>>>> playlist-download
+           <string/>
           </property>
          </widget>
         </item>
