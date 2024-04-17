@@ -4,12 +4,9 @@
 #include <QNetworkReply>
 #include <QWidget>
 #include "YtDlpWrapper/YoutubeVideo.h"
-<<<<<<< HEAD
-=======
 #include <cstdio>
 #include "Worker.h"
 
->>>>>>> playlist-download
 namespace Ui {
 class VideoListElement;
 }
@@ -55,8 +52,6 @@ private slots:
     void setVideo();
     void addOrRemoveSponsorBlockElemnt(std::string element);
     void setLength(std::string length);
-<<<<<<< HEAD
-=======
     void resolveStartTime();
     void resolveEndTime();
       bool isAudio=false;
@@ -66,7 +61,6 @@ private slots:
     QThread* threadDownload;
     YoutubeVideo loaded;
     void setupWorkerDownloadTherad();
->>>>>>> playlist-download
 };
 
 

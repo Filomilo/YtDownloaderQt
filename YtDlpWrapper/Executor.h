@@ -25,32 +25,17 @@ private:
     {
          std::wstring wideProgramTmpPath(programTmpPath.begin(), programTmpPath.end());
         CreateDirectoryW (wideProgramTmpPath.c_str(),NULL);
-<<<<<<< HEAD
-        return programTmpPath+name;
-=======
          std::string path=programTmpPath+name;
   //       Logger::info("path: "+path);
   std::replace(path.begin(), path.end(), '\"', ' ');
   // Logger::info("path: "+path);
         return path;
->>>>>>> playlist-download
     }
 
 
     static std::ifstream openStreamToFile(std::string path)
     {
-<<<<<<< HEAD
-        command+=" > "+getFilePath("result.dat")+"\n";
-        // std::cout<<"command: "+ command;
-        Logger::info("Executing: "+ command);
-        int rc=system(command.c_str());
-//        FILE * file=fopen("result.dat","r");
-        std::ifstream infile(getFilePath("result.dat"));
-        std::string buffer;
-
-=======
         std::ifstream infile;
->>>>>>> playlist-download
         std::string line;
         while(!infile.is_open()|| !infile.good() || infile.eof() || line.length()==0 )
         {
@@ -117,14 +102,10 @@ public:
     }
     static nlohmann::json executeWithJson(std::string command,std::string fileOffset)
     {
-<<<<<<< HEAD
-        command+=" > "+getFilePath("result.dat")+"\n";
-=======
        
         std::string file=getFilePath("result_"+fileOffset+".dat");
            command="cmd /c "+command;
         command+=" > \""+file+"\"\n";
->>>>>>> playlist-download
         // std::cout<<"command: "+ command;
         Logger::info("Executing for json: "+ command);
         int rc= WinExec(command.c_str(), SW_HIDE); //system(command.c_str());

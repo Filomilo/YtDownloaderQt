@@ -4,31 +4,15 @@
 #include "YtDlpWrapper/YoutubeVideo.h"
 #include "YtDlpWrapper/YoutubeDownloader.h"
 #include "Worker.h"
-<<<<<<< HEAD
-=======
 #include <QMovie>
 #include <QFileDialog>
 // #include "YtDlpWrapper/DownloadRequest.h"
->>>>>>> playlist-download
 YtDownloader::YtDownloader(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::YtDownloader)
 {
     ui->setupUi(this);
     this->youtubeDownloader=YoutubeDownloader::getInstance();
-<<<<<<< HEAD
-
-    thread=new QThread();
-    worker=new Worker();
-    worker->moveToThread(thread);
-    connect(worker,SIGNAL(progresBarChanged(int)),ui->progressBar,SLOT(setValue(int)));
-    connect(worker,SIGNAL(videosListRequested()),thread,SLOT(start()));
-    connect(thread,SIGNAL(started()),worker,SLOT(videosListLoad()));
-    connect(worker,SIGNAL(loadFinished()),thread,SLOT(quit()),Qt::DirectConnection);
-    connect(worker,SIGNAL(loadFinished()),this,SLOT( onLoadFinshed()));
-}
-
-=======
     setupWorkerLoadTherad();
     setupWorkerDownloadTherad();
     QMovie *movie = new QMovie(":/gifs/assets/loading.gif");
@@ -68,7 +52,6 @@ void YtDownloader::setupWorkerDownloadTherad()
  connect(workerDownload,SIGNAL(downloadFinished()),this,SLOT( onDownloadFinshed()));
 }
 
->>>>>>> playlist-download
 
 void workFinished();
 void videosListRequested();
@@ -93,8 +76,6 @@ VideoListElement* element=new VideoListElement();
     QVBoxLayout* layout=qobject_cast<QVBoxLayout*>( ui->VideosListContent->layout());
       layout->insertWidget(layout->count(),element);
 
-<<<<<<< HEAD
-=======
 }
 
 void YtDownloader::onLoadFinshed()
@@ -242,38 +223,4 @@ void YtDownloader::onDownloadFinshed()
 
         ui->donwladAlButton->setEnabled(true);
 
->>>>>>> playlist-download
 }
-
-void YtDownloader::onLoadFinshed()
-{
-    qDebug()<<"Load finished";;
-    std::vector<YoutubeVideo> videos= this->youtubeDownloader->getVideos();
-    for (int var = 0; var < videos.size(); ++var) {
-      this->addVideoComponents(videos[var]);
-    }
-
-}
-
-void YtDownloader::clearLoadedVideos()
-{
-      QLayoutItem* item;
-    QVBoxLayout* layout=qobject_cast<QVBoxLayout*>( ui->VideosListContent->layout());
-      while((item=layout->takeAt(0)))
-    {
-        delete item->widget();
-          delete item;
-    }
-}
-
-
-void YtDownloader::on_searchButon_clicked()
-{
-    clearLoadedVideos();
-    std::string url=  ui->youtubeVideoInput->toPlainText().toStdString();
-
- ui->progressBar->setValue(0);
- qDebug()<<"Startign wokrer request";
- this->worker->reuqestVideos(url);
-}
-

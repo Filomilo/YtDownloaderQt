@@ -3,8 +3,6 @@
 #include <QNetworkReply>
 #include "YtDlpWrapper/YoutubeVideo.h"
 #include <QNetworkAccessManager>
-<<<<<<< HEAD
-=======
 #include <QMovie>
 #include <QFileDialog>
 #include "videolistelement.h"
@@ -13,7 +11,6 @@
 #include "Worker.h"
 #include <QMovie>
 #include <QFileDialog>
->>>>>>> playlist-download
 VideoListElement::VideoListElement(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::VideoListElement)
@@ -70,10 +67,7 @@ void VideoListElement::setup(YoutubeVideo data)
     this->setTitle(data.getName());
     this->setLength(data.getDuration());
     this->setThumbnail(data.getThumbnail());
-<<<<<<< HEAD
-=======
     this->loaded=data;
->>>>>>> playlist-download
 }
 
 void VideoListElement::setTitle(std::string title)
@@ -106,16 +100,10 @@ void VideoListElement::setLength(std::string length)
     QTime time = QDateTime::fromString( QString::fromUtf8(length),"m:ss").time();
     qDebug()<<"time converted: "<<time;
     ui->timeEnd->setTime(time);
-<<<<<<< HEAD
-    ui->sliderEnd->setMaximum(time.second()+time.minute()+time.hour());
-     ui->sliderEnd->setValue(time.second()+time.minute()+time.hour());
-     ui->sliderStart->setMaximum(time.second()+time.minute()+time.hour());
-=======
     int seconds=getSecondFromTime(time);
     ui->sliderEnd->setMaximum(seconds);
      ui->sliderEnd->setValue(seconds);
      ui->sliderStart->setMaximum(seconds);
->>>>>>> playlist-download
 }
 
 
@@ -125,8 +113,6 @@ void VideoListElement::on_timeEnd_userTimeChanged(const QTime &time)
 
 }
 
-<<<<<<< HEAD
-=======
 
 void VideoListElement::on_audioRadio_clicked()
 {
@@ -326,4 +312,3 @@ void VideoListElement::on_downloadButton_clicked()
     }
 }
 
->>>>>>> playlist-download

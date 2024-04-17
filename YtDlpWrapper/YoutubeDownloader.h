@@ -22,11 +22,7 @@ private:
         srand(time(0));
     }
 
-<<<<<<< HEAD
-   void loadSingleVideo(std::string link,std::function<void(YoutubeVideo)> callback)
-=======
    void loadSingleVideo(std::string link,std::function<void(int,int)> callback, int numb)
->>>>>>> playlist-download
     {
 
         Logger::info("Loading single video from data from data: " + link);
@@ -39,44 +35,30 @@ private:
          Logger::info("video:   "+video.getName() );
         video.setUrl(link);
         this->videosList.push_back(video);
-<<<<<<< HEAD
-        callback(video);
-=======
 
         Logger::info("finshed loading single file");
         // callback(video);
->>>>>>> playlist-download
     }
 
     std::string getUrlFromPlaylsitEntry(std::string line)
     {
         std::string toFind="url\": \"";
-        // std::cout<<"to get link: "<<line<<std::endl;
+        std::cout<<"to get link: "<<line<<std::endl;
         int start=line.find(toFind);
-        // std::cout<<"\nstart: "<<start<<std::endl;
+        std::cout<<"\nstart: "<<start<<std::endl;
         if(start<0)
             return "";
         line=line.substr(start+toFind.size());
-<<<<<<< HEAD
-      //  std::cout<<"\nfrom sart: "<<line<<std::endl;
-        int end=line.find("\"");
-       // std::cout<<"\nend: "<<end<<std::endl;
-=======
        std::cout<<"\nfrom sart: "<<line<<std::endl;
         int end=line.find("\"");
        std::cout<<"\nend: "<<end<<std::endl;
->>>>>>> playlist-download
        line= line.substr(0,end);
-        // std::cout<<"\nfrom end: "<<line<<std::endl;
+        std::cout<<"\nfrom end: "<<line<<std::endl;
         return line;
     }
 
 
-<<<<<<< HEAD
-    void loadPlaylist(std::string link,std::function<void(YoutubeVideo)> callback)
-=======
     void loadPlaylist(std::string link,std::function<void(int,int)> callback)
->>>>>>> playlist-download
     {
         Logger::info("Loading playlsit data from data: " + link);
         YtDlmCommand ytDlmCommand=(new YtDlmCommandBuilder)->listPlaylistVideo(link)->build();
@@ -90,13 +72,6 @@ private:
               Logger::info("start line");
             std::string line;
             std::getline(ss,line);
-<<<<<<< HEAD
-          ;
-            std::string url=this->getUrlFromPlaylsitEntry(line);
-            // std::cout<<"url: "<<url<<std::endl<<std::endl<<std::endl;
-
-            this->loadSingleVideo(url,callback);
-=======
             Logger::info("curr line: "+ line);
 
             std::string url=this->getUrlFromPlaylsitEntry(line);
@@ -105,7 +80,6 @@ private:
             std::cout<<"url: "<<url<<std::endl<<std::endl<<std::endl;
             urls.push_back(url);
           //  this->loadSingleVideo(url,callback);
->>>>>>> playlist-download
         }
         Logger::info("stop line by line : "+  std::to_string(urls.size()) );
         std::vector<YoutubeVideo> tmp;
@@ -152,11 +126,7 @@ public:
                 loadPlaylist(link,nullptr);
             }
             else {
-<<<<<<< HEAD
-                loadSingleVideo(link,nullptr);
-=======
                 loadSingleVideo(link,nullptr,rand());
->>>>>>> playlist-download
             }
             Logger::info("size; "+ list.size());
 //            Logger::info("Execution Result " + executionResult.out);
@@ -197,33 +167,6 @@ public:
 
         return true;
     }
-
-    bool loadFilesWithCallBack(std::string link,const std::function<void(YoutubeVideo)> callback)
-    {
-        this->videosList.clear();
-        try {
-            Logger::info("Loaing files form link: " + link);
-            std::vector<YoutubeVideo> list;
-
-            if (link.find("list") != std::string::npos) {
-                loadPlaylist(link,callback);
-            }
-            else {
-                loadSingleVideo(link,callback);
-            }
-            Logger::info("size; "+ list.size());
-            // callback(this->getVideos().at(0));
-//            Logger::info("Execution Result " + executionResult.out);
-        }
-        catch (std::exception ex)
-        {
-            Logger::error("errror while loading files from link: "+std::string(ex.what()));
-            return false;
-        }
-
-        return true;
-    }
-
 
 
 

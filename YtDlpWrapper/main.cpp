@@ -19,11 +19,7 @@ void outputFeedBack(int a , int b)
 void listVideosSignle()
 {
     YoutubeDownloader* ytDownloader=YoutubeDownloader::getInstance();
-<<<<<<< HEAD
-    ytDownloader->loadFilesWithCallBack("https://www.youtube.com/watch?v=f1A7SdVTlok",[](YoutubeVideo vid){Logger::info("Test");});
-=======
     ytDownloader->loadFilesWithCallBack("https://www.youtube.com/watch?v=f1A7SdVTlok",[](int a, int b){Logger::info("Test");});
->>>>>>> playlist-download
     Logger::info("Loaded videos data: ");
     int i=0;
     std::vector<std::string> blocks;
@@ -90,11 +86,7 @@ int main(){
     // std::cout<<"test\n";
 
     // listVideosSignle();
-<<<<<<< HEAD
-   listVideosPlaylist();
-=======
 //   listVideosPlaylist();
     donwloadVideo();
->>>>>>> playlist-download
     return 0;
 }
